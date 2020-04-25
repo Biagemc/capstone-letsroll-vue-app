@@ -6,13 +6,13 @@
       <youtube :video-id="getVideoId(position.url)" ref="youtube" @playing="playing"></youtube>
 
       <h5>{{ position.type }}</h5>
-      {{ position.url }}
+
       <h5>{{ position.description }}</h5>
 
       <div v-bind:key="tag.id" v-for="tag in position.tags">
         <p>{{ tag.name }}</p>
       </div>
-      <b-button href="#">Show position</b-button>
+      <b-button v-bind:href="`/positions/${position.id}`">Show position</b-button>
       <hr />
     </div>
   </div>

@@ -5,6 +5,8 @@
       |
       <router-link to="/positions">Positions</router-link>
       |
+      <router-link to="/positions/new">Create a Position</router-link>
+      |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
