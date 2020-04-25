@@ -76,7 +76,7 @@ export default {
     },
     deletePosition: function() {
       console.log("Deleting position...");
-      axios.delete(`api/position/${this.position.id}`).then(response => {
+      axios.delete(`api/positions/${this.position.id}`).then(response => {
         console.log(response.data);
         this.$router.push("/positions");
       });

@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import PositionsIndex from "../views/PositionsIndex.vue";
 import PositionsShow from "../views/PositionsShow.vue";
 import PositionsEdit from "../views/PositionsEdit.vue";
+import PositionsNew from "../views/PositionsNew.vue";
 
 Vue.use(VueRouter);
 
@@ -19,14 +20,19 @@ const routes = [
     component: PositionsIndex,
   },
   {
-    path: "/positions/:id",
-    name: "positions-show",
-    component: PositionsShow,
+    path: "/positions/new",
+    name: "positions-new",
+    component: PositionsNew,
   },
   {
     path: "/positions/:id/edit",
     name: "positions-edit",
     component: PositionsEdit,
+  },
+  {
+    path: "/positions/:id",
+    name: "positions-show",
+    component: PositionsShow,
   },
   {
     path: "/about",
