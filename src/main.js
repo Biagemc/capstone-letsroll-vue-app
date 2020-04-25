@@ -2,13 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
-import VueYouTubeEmbed from "vue-youtube-embed";
+import VueYoutube from "vue-youtube";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import { BEmbed } from "bootstrap-vue";
 
-Vue.use(VueYouTubeEmbed);
-// if you don't want install the component globally
-Vue.use(VueYouTubeEmbed, { global: false });
-// if you want to install the component globally with a different name
-Vue.use(VueYouTubeEmbed, { global: true, componentId: "youtube-media" });
+Vue.component("b-embed", BEmbed);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
+Vue.use(VueYoutube);
 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/";
 
