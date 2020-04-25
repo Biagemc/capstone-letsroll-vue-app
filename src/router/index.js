@@ -5,6 +5,9 @@ import PositionsIndex from "../views/PositionsIndex.vue";
 import PositionsShow from "../views/PositionsShow.vue";
 import PositionsEdit from "../views/PositionsEdit.vue";
 import PositionsNew from "../views/PositionsNew.vue";
+import Signup from "../views/Signup.vue";
+import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +36,21 @@ const routes = [
     path: "/positions/:id",
     name: "positions-show",
     component: PositionsShow,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout,
   },
   {
     path: "/about",
