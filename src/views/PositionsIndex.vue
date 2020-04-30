@@ -1,6 +1,6 @@
 <template>
   <div class="positions-index">
-    <section class="colored-section" id="content">
+    <section class="section" id="content">
       <div class="container-fluid">
         <div id="top-header">
           <h3>{{ message }}</h3>
@@ -10,6 +10,7 @@
             <div class="row no-gutters">
               <div class="col-md-5">
                 <youtube
+                  id="video-card"
                   v-bind:video-id="getVideoId(position.url)"
                   ref="youtube"
                   @playing="playing"
@@ -32,32 +33,15 @@
             </div>
           </div>
         </div>
-
-        <!-- <div v-bind:key="position.id" v-for="position in positions">
-          <h3>{{ position.name }}</h3>
-          <div class="embed-responsive embed-responsive-16by9">
-            <youtube v-bind:video-id="getVideoId(position.url)" ref="youtube" @playing="playing"></youtube>
-          </div>
-
-          <h5>{{ position.type }}</h5>
-
-          <h5>{{ position.description }}</h5>
-
-          <div v-bind:key="tag.id" v-for="tag in position.tags">
-            <p>{{ tag.name }}</p>
-          </div>
-          <b-button v-bind:href="`/positions/${position.id}`">Show position</b-button>
-          <hr />
-        </div>-->
       </div>
     </section>
   </div>
 </template>
 
 <style>
-iframe {
+#video-card {
   width: 100%;
-  max-height: 250px; /* Also helpful. Optional. */
+  max-height: 250px;
   resize: horizontal;
 }
 

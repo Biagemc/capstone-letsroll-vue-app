@@ -17,7 +17,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
+              <ul id="nav-cat" class="navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="/">
                     Home
@@ -39,9 +39,7 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                  >
-                    User
-                  </a>
+                  >User</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/login">Login</a>
                     <a class="dropdown-item" href="/signup">Signup</a>
@@ -59,9 +57,6 @@
 </template>
 
 <style>
-body {
-  background: black;
-}
 .navbar {
   padding: 0 0 2rem;
 }
@@ -70,6 +65,11 @@ body {
   font-family: "Ubuntu";
   font-size: 2rem;
   font-weight: bold;
+  color: #ffc93c;
+}
+
+#nav-cat {
+  color: #ffc93c;
 }
 
 .nav-item {
@@ -77,7 +77,7 @@ body {
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: "Montserrat-Light";
 }
 
@@ -88,6 +88,6 @@ body {
 }
 
 #title .container-fluid {
-  padding: 1% 15%;
+  padding: 1% 12%;
 }
 </style>

@@ -1,45 +1,64 @@
 <template>
   <div class="positions-edit">
-    <div class="container">
-      <form v-on:submit.prevent="submit()">
-        <h1>Edit Position</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">
-            {{ error }}
-          </li>
-        </ul>
-        <div class="row">
-          <div class="form-group col-xl-5">
-            <label>Name:</label>
-            <input type="text" class="form-control" v-model="position.name" />
+    <section class="section" id="edit-section">
+      <div class="container-fluid">
+        <form v-on:submit.prevent="submit()">
+          <h1>Edit Position</h1>
+          <ul>
+            <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          </ul>
+          <div class="row">
+            <div class="form-group col-xl-5">
+              <label>Name:</label>
+              <input type="text" class="form-control" v-model="position.name" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-xl-5">
-            <label>Url:</label>
-            <input type="text" class="form-control" v-model="position.url" />
+          <div class="row">
+            <div class="form-group col-xl-5">
+              <label>Url:</label>
+              <input type="text" class="form-control" v-model="position.url" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-xl-5">
-            <label>Description:</label>
-            <input type="text" class="form-control" v-model="position.description" />
+          <div class="row">
+            <div class="form-group col-xl-5">
+              <label>Description:</label>
+              <textarea type="text" class="form-control" v-model="position.description"></textarea>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-xl-5">
-            <label>Type:</label>
-            <input type="text" class="form-control" v-model="position.type" />
+          <div class="row">
+            <div class="form-group col-xl-5">
+              <label>Type:</label>
+              <input type="text" class="form-control" v-model="position.type" />
+            </div>
           </div>
+          <div class="button">
+            <a type="submit" class="btn btn-secondary" value="Submit">Save</a>
+          </div>
+        </form>
+        <div class="button">
+          <a v-on:click="deletePosition()" class="btn btn-danger">Delete Position</a>
         </div>
-        <input type="submit" class="btn btn-secondary" value="Submit" />
-      </form>
-      <b-button v-on:click="deletePosition()" class="btn btn-danger">Delete Position</b-button>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
-<style></style>
+<style>
+#edit-section {
+  align-content: left;
+  padding: 5% 15% 5%;
+}
+
+.button {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.btn-secondary,
+.btn-danger {
+  width: 10rem;
+}
+</style>
 
 <script>
 import axios from "axios";
