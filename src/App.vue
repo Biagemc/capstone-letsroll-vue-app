@@ -3,8 +3,8 @@
     <section class="colored-section" id="title">
       <div class="container-fluid">
         <div id="nav">
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">#letsRoll</a>
+          <nav class="navbar navbar-expand-xl navbar-light">
+            <a class="navbar-brand" id="brand-name" href="#">#letsRoll</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -39,7 +39,9 @@
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                  >User</a>
+                  >
+                    User
+                  </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/login">Login</a>
                     <a class="dropdown-item" href="/signup">Signup</a>
@@ -57,13 +59,16 @@
 </template>
 
 <style>
+body {
+  background: black;
+}
 .navbar {
-  padding: 0 0 3rem;
+  padding: 0 0 2rem;
 }
 
-.navbar-brand {
+#brand-name {
   font-family: "Ubuntu";
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -77,16 +82,12 @@
 }
 
 #title {
-  background-color: #f72a2a;
+  background-color: #323232;
   color: #fff;
   text-align: left;
 }
 
 #title .container-fluid {
-  padding: 3% 10% 5%;
+  padding: 1% 15%;
 }
 </style>
-
-
-
-

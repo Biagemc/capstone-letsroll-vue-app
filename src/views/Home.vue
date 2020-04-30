@@ -1,11 +1,13 @@
 <template>
-  <div class="home">
-    <img v-bind:src="'../public/jiu-photo-1.jpeg'" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <style>
-.home {
+body {
+  background: url("https://res.cloudinary.com/daopqmnvp/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
 
