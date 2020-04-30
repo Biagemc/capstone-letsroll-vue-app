@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
+    <img v-bind:src="'../public/jiu-photo-1.jpeg'" />
   </div>
 </template>
 
 <style>
+.home {
+}
 </style>
 
 <script>
 export default {
   data: function() {
-    return {
-      message: "Welcome to Vue.js!",
-    };
+    return {};
   },
   created: function() {},
   methods: {},

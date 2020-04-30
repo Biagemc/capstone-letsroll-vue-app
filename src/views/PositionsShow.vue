@@ -29,7 +29,7 @@ export default {
     return {
       message: "List of Positions",
       position: {},
-      videoId: "",
+
       playerVars: {
         autoplay: 1,
       },
@@ -46,9 +46,9 @@ export default {
       console.log("o/ we are watching!!!");
     },
     getVideoId(url) {
-      this.videoId = getIdFromUrl(url);
+      let videoId = getIdFromUrl(url);
       // console.log(this.videoId);
-      return this.videoId;
+      return videoId;
     },
   },
 };
