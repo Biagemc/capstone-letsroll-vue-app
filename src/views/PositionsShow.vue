@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     playing() {
-      console.log("\o/ we are watching!!!");
+      console.log("o/ we are watching!!!");
     },
     getVideoId(url) {
       this.videoId = getIdFromUrl(url);

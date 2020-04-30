@@ -3,7 +3,7 @@
     <h1>{{ message }}</h1>
     <div v-bind:key="position.id" v-for="position in positions">
       <h3>{{ position.name }}</h3>
-      <youtube :video-id="getVideoId(position.url)" ref="youtube" @playing="playing"></youtube>
+      <youtube v-bind:video-id="getVideoId(position.url)" ref="youtube" @playing="playing"></youtube>
 
       <h5>{{ position.type }}</h5>
 
@@ -29,7 +29,7 @@ export default {
     return {
       message: "List of Positions",
       positions: [],
-      videoId: "",
+
       playerVars: {
         autoplay: 1,
       },
@@ -44,12 +44,12 @@ export default {
   },
   methods: {
     playing() {
-      console.log("\o/ we are watching!!!");
+      console.log("o/ we are watching!!!");
     },
     getVideoId(url) {
-      this.videoId = getIdFromUrl(url);
+      let videoId = getIdFromUrl(url);
       // console.log(this.videoId);
-      return this.videoId;
+      return videoId;
     },
   },
 };
