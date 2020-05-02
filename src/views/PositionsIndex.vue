@@ -5,31 +5,31 @@
         <div id="top-header">
           <h3>{{ message }}</h3>
         </div>
-        <div id="listing" v-bind:key="position.id" v-for="position in positions">
-          <div class="card mb-8" style="max-width: 1000px; max-height: 650px">
-            <div class="row no-gutters">
-              <div class="col-md-5">
+        <div class="d-flex justify-content-around">
+          <div class="row">
+            <div
+              id="listing"
+              class="card col-4 ml-4"
+              v-bind:key="position.id"
+              v-for="position in positions"
+            >
+              <div class="embed-responsive embed-responsive-16by9">
                 <youtube
-                  id="video-card"
+                  class="embed-responsive-item"
                   v-bind:video-id="getVideoId(position.url)"
                   ref="youtube"
                   @playing="playing"
                 ></youtube>
               </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <h5 class="card-title">{{ position.name }}</h5>
-                  <p class="card-text">{{ position.description }}</p>
-                  <p class="card-text">
-                    <a
-                      href="#"
-                      class="badge badge-light"
-                      v-bind:key="tag.id"
-                      v-for="tag in position.tags"
-                    >#{{ tag.name }}</a>
-                  </p>
-                  <a v-bind:href="`/positions/${position.id}`" class="btn btn-primary">More</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ position.name }}</h5>
+                <p class="card-text">{{ position.description }}</p>
+                <a
+                  href="#"
+                  class="badge badge-light"
+                  v-bind:key="tag.id"
+                  v-for="tag in position.tags"
+                >#{{ tag.name }}</a>
               </div>
             </div>
           </div>
@@ -41,9 +41,9 @@
 
 <style>
 #video-card {
-  width: 100%;
-  max-height: 250px;
-  resize: horizontal;
+  width: 300px;
+  height: auto;
+  resize: vertical;
 }
 
 #top-header {
@@ -53,11 +53,16 @@
 }
 
 #listing {
-  padding: 3%;
+  padding: 0;
 }
 
 #content .container-fluid {
-  padding: 3% 10% 5%;
+  padding: 3% 5%;
+  align-content: center;
+}
+
+.card-title {
+  padding-bottom: 1rem;
 }
 </style>
 
