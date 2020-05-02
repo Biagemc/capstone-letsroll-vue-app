@@ -1,7 +1,26 @@
 <template>
   <div id="landing" class="home">
     <main role="main">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div id="top-container">
+        <form class="justify-content-center">
+          <div class="form-row">
+            <div class="col-4">
+              <input type="text" class="form-control" placeholder="Search" />
+            </div>
+            <div class="col-auto">
+              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Type...</option>
+                <option value="1">One</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <input type="text" class="form-control" placeholder="Tags" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div id="myCarousel" class="carousel slide mid-container" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1" class></li>
@@ -83,7 +102,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
+      </div>-->
 
       <!-- Marketing messaging and featurettes
       ==================================================-->
@@ -275,6 +294,15 @@
 </template>
 
 <style>
+#top-container {
+  height: 650px;
+  background-color: #323232;
+  padding: 3rem;
+}
+
+.marketing {
+  padding: 10rem 3rem 10rem 3rem;
+}
 </style>
 
 <script>

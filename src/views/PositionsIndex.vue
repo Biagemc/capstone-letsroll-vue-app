@@ -21,11 +21,12 @@
                   <h5 class="card-title">{{ position.name }}</h5>
                   <p class="card-text">{{ position.description }}</p>
                   <p class="card-text">
-                    <small
-                      class="text-muted"
+                    <a
+                      href="#"
+                      class="badge badge-light"
                       v-bind:key="tag.id"
                       v-for="tag in position.tags"
-                    >{{ tag.name }}</small>
+                    >#{{ tag.name }}</a>
                   </p>
                   <a v-bind:href="`/positions/${position.id}`" class="btn btn-primary">More</a>
                 </div>

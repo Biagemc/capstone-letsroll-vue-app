@@ -19,16 +19,16 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul id="nav-cat" class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="/">
+                  <a id="home-tag" class="nav-link" href="/">
                     Home
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/positions">Browse Positions</a>
+                  <a id="positions-tag" class="nav-link" href="/positions">Browse Positions</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/positions/new">New Position</a>
+                  <a id="new-tag" class="nav-link" href="/positions/new">New Position</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -70,6 +70,13 @@
 
 #nav-cat {
   color: #ffc93c;
+}
+
+#home-tag,
+#new-tag,
+#positions-tag,
+#navbarDropdownMenuLink {
+  color: #ffffff;
 }
 
 .nav-item {
