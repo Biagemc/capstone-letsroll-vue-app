@@ -45,7 +45,7 @@
                       type="password"
                       class="form-control"
                       placeholder="Password..."
-                      v-model="email"
+                      v-model="password"
                     />
                   </div>
                 </span>

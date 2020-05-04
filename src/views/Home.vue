@@ -1,5 +1,52 @@
 <template>
   <div id="landing" class="home">
+    <div
+      class="page-header header-filter"
+      style="background-image: url('https://res.cloudinary.com/daopqmnvp/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg');"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h1 class="title">Let's practice with us!</h1>
+            <h4>Now you have no excuses, it&apos;s time to level up your positions, because your competitors will. You probably won&apos;t have a better chance to unlock all your potential.</h4>
+          </div>
+          <div class="col-md-10 ml-auto mr-auto">
+            <div class="card card-raised card-form-horizontal">
+              <div class="card-body">
+                <form method action>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <input type="text" value placeholder="Company Name" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <input type="email" value placeholder="Company Email" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          value
+                          placeholder="Company Password"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <button type="button" class="btn btn-primary btn-block">Sign up</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <main role="main">
       <div id="top-container-home">
         <form class="justify-content-center">
@@ -231,11 +278,6 @@
 </template>
 
 <style>
-#top-container-home {
-  height: 650px;
-  padding: 3rem;
-}
-
 .marketing {
   padding: 10rem 3rem 10rem 3rem;
 }
