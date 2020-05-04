@@ -59,47 +59,50 @@
             color: $white-color;
         }
     }
+    // .tagsinput-add{
+    //     color: $color;
+    // }
 }
 
 @mixin create-colored-badges(){
     &.primary-badge{
-        @include badges-color($primary);
+        @include badges-color($brand-primary);
     }
     &.info-badge {
-        @include badges-color($info);
+        @include badges-color($brand-info);
     }
     &.success-badge{
-        @include badges-color($success);
+        @include badges-color($brand-success);
     }
     &.warning-badge{
-        @include badges-color($warning);
+        @include badges-color($brand-warning);
     }
     &.danger-badge{
-        @include badges-color($danger);
+        @include badges-color($brand-danger);
     }
     &.rose-badge{
-      @include badges-color($rose);
+      @include badges-color($brand-rose);
     }
 }
 
 @mixin badge-color() {
     &.badge-primary{
-        background-color: $primary;
+        background-color: $brand-primary;
     }
     &.badge-info {
-        background-color: $info;
+        background-color: $brand-info;
     }
     &.badge-success{
-        background-color: $success;
+        background-color: $brand-success;
     }
     &.badge-warning{
-        background-color: $warning;
+        background-color: $brand-warning;
     }
     &.badge-danger{
-        background-color: $danger;
+        background-color: $brand-danger;
     }
     &.badge-rose{
-      background-color: $rose;
+      background-color: $brand-rose;
     }
     &.badge-default{
         background-color: $gray-light;

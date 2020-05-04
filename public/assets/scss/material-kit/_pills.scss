@@ -29,8 +29,8 @@
 
             &.active{
                 color: $white-color;
-                background-color: $primary;
-                @include shadow-big-color($primary);
+                background-color: $brand-primary;
+                @include shadow-big-color($brand-primary);
             }
         }
 
@@ -48,8 +48,8 @@
                 &,
                 &:focus,
                 &:hover{
-                    background-color: $info;
-                    @include shadow-big-color($info);
+                    background-color: $brand-info;
+                    @include shadow-big-color($brand-info);
                     color: $white-color;
                 }
             }
@@ -62,8 +62,8 @@
                 &,
                 &:focus,
                 &:hover{
-                    background-color: $rose;
-                    @include shadow-big-color($rose);
+                    background-color: $brand-rose;
+                    @include shadow-big-color($brand-rose);
                     color: $white-color;
                 }
             }
@@ -76,8 +76,8 @@
                 &,
                 &:focus,
                 &:hover{
-                    background-color: $success;
-                    @include shadow-big-color($success);
+                    background-color: $brand-success;
+                    @include shadow-big-color($brand-success);
                     color: $white-color;
                 }
             }
@@ -90,8 +90,8 @@
                 &,
                 &:focus,
                 &:hover{
-                    background-color: $warning;
-                    @include shadow-big-color($warning);
+                    background-color: $brand-warning;
+                    @include shadow-big-color($brand-warning);
                     color: $white-color;
                 }
             }
@@ -104,8 +104,8 @@
                 &,
                 &:focus,
                 &:hover{
-                    background-color: $danger;
-                    @include shadow-big-color($danger);
+                    background-color: $brand-danger;
+                    @include shadow-big-color($brand-danger);
                     color: $white-color;
                 }
             }

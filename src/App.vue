@@ -1,66 +1,66 @@
 <template>
   <div id="app">
-    <div class="container-fluid">
-      <div id="nav">
-        <nav id="nav-bar" class="navbar navbar-expand-lg bg-danger">
-          <a class="navbar-brand" id="brand-name" href="#">#letsRoll</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul id="nav-cat" class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a id="home-tag" class="nav-link" href="/">
-                  Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a id="positions-tag" class="nav-link" href="/positions">Browse Positions</a>
-              </li>
-              <li class="nav-item">
-                <a id="new-tag" class="nav-link" href="/positions/new">New Position</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  User
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/login">Login</a>
-                  <a class="dropdown-item" href="/signup">Signup</a>
-                  <a class="dropdown-item" href="/logout">Logout</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a id="brand-name" class="navbar-brand" href="#">#letsRoll</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a id="home-tag" class="nav-link" href="/">
+                Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="positions-tag" class="nav-link" href="/positions">Browse Positions</a>
+            </li>
+            <li class="nav-item">
+              <a id="new-tag" class="nav-link" href="/positions/new">New Position</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                User
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/login">Login</a>
+                <a class="dropdown-item" href="/signup">Signup</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
 
     <router-view />
   </div>
 </template>
 
 <style>
-.navbar {
+/* .navbar {
   padding: 0 0 2rem;
-}
+} */
 
 #nav-bar,
 .navbar {
@@ -101,3 +101,10 @@
   padding: 1% 12%;
 }
 </style>
+
+<script>
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export default {};
+</script>

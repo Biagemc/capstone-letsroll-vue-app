@@ -6,15 +6,19 @@
           <h3>{{ message }}</h3>
 
           <div id="top-container">
-            <form class="justify-content-center">
+            <form class="justify-content-center" v-on:submit.prevent="submit()">
               <div class="form-row">
                 <div class="col-4">
                   <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
                   <datalist id="names">
                     <option v-for="position in positions">{{ position.name }}</option>
                   </datalist>
-                  <button class="btn btn-primary btn-sm" v-on:click="setSortAttribute('name')">by Name</button>
-                  <button class="btn btn-primary btn-sm" v-on:click="setSortAttribute('Type')">by Type</button>
+                  <button class="btn btn-primary btn-sm" v-on:click="setSortAttribute('name')">
+                    by Name
+                  </button>
+                  <button class="btn btn-primary btn-sm" v-on:click="setSortAttribute('Type')">
+                    by Type
+                  </button>
                 </div>
                 <div class="col-auto">
                   <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
@@ -35,13 +39,14 @@
             <div
               id="listing"
               class="card col-4 ml-4"
+              style="width: 20rem;"
               v-bind:key="position.id"
               v-for="position in orderBy(filterBy(positions, nameFilter, 'name', 'type'), sortAttribute, 1)"
               v-on:click="currentPosition === position"
             >
               <div class="embed-responsive embed-responsive-16by9">
                 <youtube
-                  class="embed-responsive-item"
+                  class="embed-responsive-item card-img-top"
                   v-bind:video-id="getVideoId(position.url)"
                   ref="youtube"
                   @playing="playing"

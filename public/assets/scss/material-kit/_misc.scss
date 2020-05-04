@@ -31,7 +31,7 @@ a{
 
   &.text-info{
       &:hover, &:focus{
-          color: darken($info, 5%);
+          color: darken($brand-info, 5%);
       }
   }
 
@@ -41,7 +41,7 @@ a{
 }
 
 .main{
-    background: $white-color;
+    background: #FFFFFF;
     position: relative;
     z-index: 3;
 }
@@ -376,7 +376,7 @@ label{
 
 .separator{
     content: "Separator";
-    color: $white-color;
+    color: #FFFFFF;
     display: block;
     width: 100%;
     padding: 20px;
@@ -417,7 +417,7 @@ label{
 }
 .sharing-area .btn{
     margin: 15px 4px 0;
-    color: $white-color;
+    color: #FFFFFF;
 }
 .sharing-area .btn i{
     font-size: 18px;
@@ -434,8 +434,8 @@ label{
 .sharing-area .btn-facebook{
     background-color: #3b5998;
 }
-.sharing-area .btn-instagram{
-    background-color: #e4405f;
+.sharing-area .btn-google-plus{
+    background-color: #dd4b39;
 }
 .sharing-area .btn-github{
     background-color: #333333;
@@ -525,7 +525,7 @@ label{
       padding: 3px 7px;
       font-size: 8px;
       line-height: 9px;
-      background-color: $primary;
+      background-color: $brand-primary;
     }
   }
 

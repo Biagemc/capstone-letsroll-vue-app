@@ -64,17 +64,20 @@
   background: rgba(0,0,0,0.5);
 }
 
-.modal {
-  .modal-header .close {
+.modal{
+  .modal-dialog{
+    margin-top: 130px;
+  }
+  .modal-header .close{
     color: $gray-light;
 
     &:hover,
-    &:focus {
-      opacity: 1;
+    &:focus{
+        opacity: 1;
     }
 
-    i {
-      font-size: 16px;
+    i{
+        font-size: 16px;
     }
   }
 }

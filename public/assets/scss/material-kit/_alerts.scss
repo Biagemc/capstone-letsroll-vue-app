@@ -5,7 +5,9 @@
     padding: 20px 15px;
     line-height: 20px;
 
-    b {
+    //@include shadow-z-2();
+
+    b{
         font-weight: $font-weight-bold;
         text-transform: uppercase;
         font-size: $font-size-small;
