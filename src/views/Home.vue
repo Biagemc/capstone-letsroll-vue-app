@@ -15,28 +15,36 @@
               <div class="card-body">
                 <form method action>
                   <div class="row">
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <input type="text" value placeholder="Company Name" class="form-control" />
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <input type="email" value placeholder="Company Email" class="form-control" />
-                      </div>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <input
-                          type="password"
+                          type="text"
                           value
-                          placeholder="Company Password"
+                          placeholder="Browse Positions"
                           class="form-control"
                         />
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <button type="button" class="btn btn-primary btn-block">Sign up</button>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                          <option selected>Type...</option>
+                          <option value="1">One</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                          <option selected>Type...</option>
+                          <option value="1">One</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <button type="button" class="btn btn-warning btn-link">Sign up</button>
                     </div>
                   </div>
                 </form>
@@ -48,25 +56,7 @@
     </div>
 
     <main role="main">
-      <div id="top-container-home">
-        <form class="justify-content-center">
-          <div class="form-row">
-            <div class="col-4">
-              <input type="text" class="form-control" placeholder="Search" />
-            </div>
-            <div class="col-auto">
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Type...</option>
-                <option value="1">One</option>
-              </select>
-            </div>
-            <div class="col-2">
-              <input type="text" class="form-control" placeholder="Tags" />
-            </div>
-          </div>
-        </form>
-      </div>
+      <div id="top-container-home"></div>
 
       <!-- Marketing messaging and featurettes
       ==================================================-->
@@ -284,8 +274,6 @@
 </style>
 
 <script>
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Vue2Filters from "vue2-filters";
 
 export default {
