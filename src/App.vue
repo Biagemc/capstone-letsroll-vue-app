@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg bg-dark">
       <div class="container">
         <a id="brand-name" class="navbar-brand" href="#">#letsRoll</a>
         <button
@@ -17,7 +17,7 @@
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a id="home-tag" class="nav-link" href="/">
@@ -39,9 +39,7 @@
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-              >
-                User
-              </a>
+              >User</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="/login">Login</a>
                 <a class="dropdown-item" href="/signup">Signup</a>
@@ -103,8 +101,4 @@
 </style>
 
 <script>
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-export default {};
 </script>

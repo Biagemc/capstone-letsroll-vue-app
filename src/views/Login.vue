@@ -5,7 +5,7 @@
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
           <form class="form" method action v-on:submit.prevent="submit()">
             <div class="card card-login card-hidden">
-              <div class="card-header card-header-primary text-center">
+              <div class="card-header text-center">
                 <h4 class="card-title">Login</h4>
               </div>
               <div class="card-body">
@@ -56,7 +56,7 @@
                   value="Submit"
                   type="submit"
                   href="/positions"
-                  class="btn btn-rose btn-link btn-lg"
+                  class="btn btn-warning btn-link"
                 />
               </div>
             </div>
@@ -86,6 +86,12 @@
     </div>-->
   </div>
 </template>
+
+<style>
+.login {
+  padding-top: 12rem;
+}
+</style>
 
 <script>
 import axios from "axios";
