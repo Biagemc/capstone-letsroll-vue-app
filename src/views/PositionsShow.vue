@@ -23,8 +23,9 @@
           <div id="button-edit">
             <a v-bind:href="`/positions/${position.id}/edit`" class="btn btn-primary">Edit Info</a>
           </div>
-
-          <p>{{ position.discussion.post }}</p>
+          <div v-bind:key="comment.id" v-for="comment in position.discussion">
+            <p>{{ comment.content }}</p>
+          </div>
         </div>
       </div>
     </section>
