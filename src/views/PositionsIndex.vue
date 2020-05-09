@@ -321,7 +321,7 @@
           </div>-->
 
           <div id="top-container" class>
-            <form class="justify-content-center">
+            <form class="justify-content-center" v-on:submit.prevent="submit()">
               <div class="form-row">
                 <div class="col-4">
                   <input
@@ -338,6 +338,7 @@
                     class="btn btn-primary btn-sm"
                     v-on:click="setSortAttribute('name')"
                   >by Name</button>-->
+
                   <button class="btn btn-primary btn-sm" v-on:click="getSearch()">Search</button>
                 </div>
                 <div class="col-auto">
@@ -352,8 +353,39 @@
                     <option v-for="position in positions">{{ position.type }}</option>
                   </select>
                 </div>
-                <div class="col-2">
-                  <input type="text" class="form-control" placeholder="Tags" />
+                <div class="col-3">
+                  <!-- Tag input begin -->
+
+                  <div class="bootstrap-tagsinput rose-badge">
+                    <span class="tag badge">
+                      Amsterdam
+                      <span data-role="remove"></span>
+                    </span>
+                    <span class="tag badge">
+                      Washington
+                      <span data-role="remove"></span>
+                    </span>
+                    <span class="tag badge">
+                      Sydney
+                      <span data-role="remove"></span>
+                    </span>
+                    <span class="bmd-form-group">
+                      <input type="text" class="form-control" placeholder size="1" />
+                    </span>
+                  </div>
+                  <span class="bmd-form-group is-filled">
+                    <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
+                    <input
+                      type="text"
+                      value="Amsterdam,Washington,Sydney,Beijing"
+                      class="tagsinput form-control"
+                      data-role="tagsinput"
+                      data-color="rose"
+                      style="display: none;"
+                    />
+                  </span>
+
+                  <!-- Tag input end -->
                 </div>
               </div>
             </form>
@@ -385,12 +417,11 @@
                   >{{ position.name }}</a>
                   <p class="card-text">{{ position.description }}</p>
                   <p class="card-text">{{ position.type }}</p>
-                  <a
-                    href="#"
-                    class="badge badge-light"
-                    v-bind:key="tag.id"
-                    v-for="tag in position.tags"
-                  >#{{ tag.name }}</a>
+
+                  <span href="#" v-bind:key="tag.id" v-for="tag in position.tags" class="tag badge">
+                    #{{ tag.name }}
+                    <span data-role="remove"></span>
+                  </span>
                 </div>
               </div>
             </div>
