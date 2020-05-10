@@ -2,426 +2,82 @@
   <div class="positions-index">
     <div class="container">
       <div class="col-lg-12 ml-auto mr-auto text-center">
-        <div id="top-header" class="row">
+        <div id="top-container" class>
           <h3>{{ message }}</h3>
+          <div id="top-header">
+            <!-- form begin -->
 
-          <!-- <div class="col-lg-5 col-md-6 col-sm-3">
-            <div class="dropdown bootstrap-select show-tick show">
-              <select
-                class="selectpicker"
-                data-style="select-with-transition"
-                multiple
-                title="Choose City"
-                data-size="7"
-                tabindex="-98"
-              >
-                <option disabled>Choose city</option>
-                <option value="2">Paris</option>
-                <option value="3">Bucharest</option>
-                <option value="4">Rome</option>
-                <option value="5">New York</option>
-                <option value="6">Miami</option>
-                <option value="7">Piatra Neamt</option>
-                <option value="8">Paris</option>
-                <option value="9">Bucharest</option>
-                <option value="10">Rome</option>
-                <option value="11">New York</option>
-                <option value="12">Miami</option>
-                <option value="13">Piatra Neamt</option>
-                <option value="14">Paris</option>
-                <option value="15">Bucharest</option>
-                <option value="16">Rome</option>
-                <option value="17">New York</option>
-                <option value="18">Miami</option>
-                <option value="19">Piatra Neamt</option>
-              </select>
-              <button
-                type="button"
-                class="btn dropdown-toggle select-with-transition bs-placeholder"
-                data-toggle="dropdown"
-                role="combobox"
-                aria-owns="bs-select-2"
-                aria-haspopup="listbox"
-                aria-expanded="true"
-                title="Choose City"
-              >
-                <div class="filter-option">
-                  <div class="filter-option-inner">
-                    <div class="filter-option-inner-inner">Choose City</div>
-                  </div>
-                </div>
-              </button>
-              <div
-                class="dropdown-menu show"
-                x-placement="bottom-start"
-                style="max-height: 276px; overflow: hidden; position: absolute; top: 46px; left: 1px; will-change: top, left;"
-              >
-                <div
-                  class="inner show"
-                  role="listbox"
-                  id="bs-select-2"
-                  tabindex="-1"
-                  aria-multiselectable="true"
-                  style="max-height: 266px; overflow-y: auto;"
-                >
-                  <ul
-                    class="dropdown-menu inner show"
-                    role="presentation"
-                    style="margin-top: 0px; margin-bottom: 0px;"
-                  >
-                    <li class="disabled">
-                      <a
-                        role="option"
-                        class="dropdown-item disabled"
-                        id="bs-select-2-0"
-                        aria-disabled="true"
-                        tabindex="-1"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Choose city</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-1"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="1"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Paris</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-2"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="2"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Bucharest</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-3"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="3"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Rome</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-4"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="4"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">New York</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-5"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Miami</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-6"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Piatra Neamt</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-7"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="7"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Paris</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-8"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="8"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Bucharest</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-9"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Rome</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-10"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="10"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">New York</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-11"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Miami</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-12"
-                        tabindex="0"
-                        aria-selected="false"
-                        aria-setsize="18"
-                        aria-posinset="12"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Piatra Neamt</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-13"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Paris</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-14"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Bucharest</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-15"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Rome</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-16"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">New York</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-17"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Miami</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        role="option"
-                        class="dropdown-item"
-                        id="bs-select-2-18"
-                        tabindex="0"
-                        aria-selected="false"
-                      >
-                        <span class="material-icons check-mark">done</span>
-                        <span class="text">Piatra Neamt</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>-->
-
-          <div id="top-container" class>
             <form class="justify-content-center" v-on:submit.prevent="submit()">
               <div class="form-row">
-                <div class="col-4">
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="nameFilter"
-                    list="names"
-                    placeholder="Search"
-                  />
+                <div class=" col-lg-4">
+                  <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
                   <datalist id="names">
                     <option v-for="position in positions">{{ position.name }}</option>
                   </datalist>
-                  <!-- <button
-                    class="btn btn-primary btn-sm"
-                    v-on:click="setSortAttribute('name')"
-                  >by Name</button>-->
-
-                  <button class="btn btn-primary btn-sm" v-on:click="getSearch()">Search</button>
                 </div>
-                <div class="col-auto">
-                  <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
+
+                <div class="form-group col-lg-3">
                   <select
-                    class="custom-select mr-sm-2"
-                    id="inlineFormCustomSelect"
+                    id="inputState"
+                    class="form-control"
                     v-bind:on-change="updateSelected(theCurrentValue)"
                     v-model="theCurrentValue"
                   >
-                    <option selected>Type</option>
+                    <option v-model="theCurrentValue" selected></option>
                     <option v-for="position in positions">{{ position.type }}</option>
                   </select>
                 </div>
-                <div class="col-3">
-                  <!-- Tag input begin -->
-
-                  <div class="bootstrap-tagsinput rose-badge">
-                    <span class="tag badge">
-                      Amsterdam
-                      <span data-role="remove"></span>
-                    </span>
-                    <span class="tag badge">
-                      Washington
-                      <span data-role="remove"></span>
-                    </span>
-                    <span class="tag badge">
-                      Sydney
-                      <span data-role="remove"></span>
-                    </span>
-                    <span class="bmd-form-group">
-                      <input type="text" class="form-control" placeholder size="1" />
-                    </span>
-                  </div>
-                  <span class="bmd-form-group is-filled">
-                    <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
-                    <input
-                      type="text"
-                      value="Amsterdam,Washington,Sydney,Beijing"
-                      class="tagsinput form-control"
-                      data-role="tagsinput"
-                      data-color="rose"
-                      style="display: none;"
-                    />
-                  </span>
-
-                  <!-- Tag input end -->
+                <div class="form-group col-lg-3">
+                  <select id="inputState" class="form-control">
+                    <option selected>Tags Type...</option>
+                    <option v-for="position in positions">{{ position.tags }}</option>
+                  </select>
                 </div>
+                <button class="btn btn-primary btn-sm" v-on:click="getSearch()">Search</button>
               </div>
             </form>
+            <!-- End form -->
           </div>
         </div>
         <div class="container">
-          <div class="col-md-12">
-            <div class="row">
-              <div
-                id="listing"
-                class="card col-3"
-                style="width: 20rem;"
-                v-bind:key="position.id"
-                v-for="position in orderBy(filterBy(positions, nameFilter, 'name'), sortAttribute, 1)"
-                v-on:click="currentPosition === position"
-              >
-                <div class="embed-responsive embed-responsive-16by9">
+          <div class="row">
+            <div
+              id="listing"
+              class="card card-profile ml-auto mr-auto"
+              style="max-heigth: 100px;max-width: 280px;"
+              v-bind:key="position.id"
+              v-for="position in orderBy(filterBy(positions, nameFilter, 'name'), sortAttribute, 1)"
+              v-on:click="currentPosition === position"
+            >
+              <div class=" card-header card-header-image">
+                <div class="iframe-container embed-responsive embed-responsive-16by9">
                   <youtube
-                    class="embed-responsive-item card-img-top"
+                    class="embed-responsive-item"
+                    style="max-width: 280px;"
+                    gesture="media"
+                    allow="encrypted-media"
+                    allowfullscreen
                     v-bind:video-id="getVideoId(position.url)"
                     ref="youtube"
                     @playing="playing"
                   ></youtube>
                 </div>
-                <div class="card-body">
-                  <a
-                    class="card-title"
-                    v-bind:href="`/positions/${position.id}`"
-                  >{{ position.name }}</a>
-                  <p class="card-text">{{ position.description }}</p>
-                  <p class="card-text">{{ position.type }}</p>
+              </div>
+              <div class="card-body">
+                <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                <p class="card-text">{{ position.description }}</p>
+                <p class="card-category text-gray">{{ position.type }}</p>
 
-                  <span href="#" v-bind:key="tag.id" v-for="tag in position.tags" class="tag badge">
-                    #{{ tag.name }}
-                    <span data-role="remove"></span>
-                  </span>
+                <div class="card-footer justify-content-center">
+                  <div v-bind:key="tag.id" v-for="tag in position.tags">
+                    <form class="justify-content-center">
+                      <div class="form-row">
+                        <div class="bootstrap-tagsinput warning-badge">
+                          <span href="#" class="tag badge">#{{ tag.name }}</span>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -477,6 +133,7 @@ export default {
     return {
       message: "Positions",
       positions: [],
+      tags: [],
       currentPosition: {},
       nameFilter: "",
       sortAttribute: "name",
@@ -491,8 +148,8 @@ export default {
   created: function() {
     axios.get("/api/positions").then(response => {
       console.log(response.data);
-
       this.positions = response.data;
+      this.tags = this.positions.tags;
     });
   },
   methods: {

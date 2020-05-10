@@ -2,268 +2,221 @@
   <div id="landing" class="home">
     <div
       class="page-header header-filter"
-      style="background-image: url('https://res.cloudinary.com/daopqmnvp/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg');"
+      data-parallax="true"
+      style="background-image: url('https://res.cloudinary.com/daopqmnvp/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg')"
     >
       <div class="container">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h1 class="title">Let's practice with us!</h1>
-            <h4>Now you have no excuses, it&apos;s time to level up your positions, because your competitors will. You probably won&apos;t have a better chance to unlock all your potential.</h4>
-          </div>
-          <div class="col-md-10 ml-auto mr-auto">
-            <div class="card card-raised card-form-horizontal">
-              <div class="card-body">
-                <form method action>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          value
-                          placeholder="Browse Positions"
-                          class="form-control"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                          <option selected>Type...</option>
-                          <option value="1">One</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect"></label>
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                          <option selected>Type...</option>
-                          <option value="1">One</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <button type="button" class="btn btn-warning btn-link">Sign up</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+          <div class="col-md-6">
+            <h1 class="title">Your Jiu-Jitsu starts here.</h1>
+            <h4>
+              Now you have no excuses, it&apos;s time to level up your positions, because your competitors will. You
+              probably won&apos;t have a better chance to unlock all your potential.
+            </h4>
+            <br />
+            <a href="/signup" class="btn btn-danger btn-raised btn-lg">
+              <i class="fa fa-play"></i>
+              Signup
+              <div class="ripple-container"></div>
+            </a>
+            <a href="/login" class="btn btn-light btn-raised btn-lg">
+              <i class="fa fa-play"></i>
+              Login
+              <div class="ripple-container"></div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-
-    <main role="main">
-      <div id="top-container-home"></div>
-
-      <!-- Marketing messaging and featurettes
-      ==================================================-->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+    <div class="main main-raised">
       <div class="container">
-        <div class="container marketing">
-          <!-- Three columns of text below the carousel -->
+        <div class="section text-center">
           <div class="row">
-            <div class="col-lg-4">
-              <svg
-                class="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 140x140"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-              </svg>
-              <h2>Heading</h2>
-              <p>
-                Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-                vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
-                cursus magna.
-              </p>
-              <p>
-                <a class="btn btn-secondary" href="#" role="button">View details »</a>
-              </p>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <svg
-                class="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 140x140"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-              </svg>
-              <h2>Heading</h2>
-              <p>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-                mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh.
-              </p>
-              <p>
-                <a class="btn btn-secondary" href="#" role="button">View details »</a>
-              </p>
-            </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <svg
-                class="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 140x140"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-              </svg>
-              <h2>Heading</h2>
-              <p>
-                Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.
-              </p>
-              <p>
-                <a class="btn btn-secondary" href="#" role="button">View details »</a>
-              </p>
-            </div>
-            <!-- /.col-lg-4 -->
-          </div>
-          <!-- /.row -->
-
-          <!-- START THE FEATURETTES -->
-
-          <hr class="featurette-divider" />
-
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">
-                First featurette heading.
-                <span class="text-muted">It’ll blow your mind.</span>
-              </h2>
-              <p class="lead">
-                Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.
-              </p>
-            </div>
-            <div class="col-md-5">
-              <svg
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
-                height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 500x500"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-              </svg>
+            <div class="col-md-8 ml-auto mr-auto">
+              <h2 class="title">Let&apos;s Roll</h2>
+              <h5 class="description">
+                Here you can browse positions you are looking for to practice and improve. You can comment and ask if
+                you have any questions. Here you will find the edge to level up your game.
+              </h5>
             </div>
           </div>
-
-          <hr class="featurette-divider" />
-
-          <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">
-                Oh yeah, it’s that good.
-                <span class="text-muted">See for yourself.</span>
-              </h2>
-              <p class="lead">
-                Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.
-              </p>
-            </div>
-            <div class="col-md-5 order-md-1">
-              <svg
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
-                height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 500x500"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-              </svg>
-            </div>
-          </div>
-
-          <hr class="featurette-divider" />
-
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">
-                And lastly, this one.
-                <span class="text-muted">Checkmate.</span>
-              </h2>
-              <p class="lead">
-                Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.
-              </p>
-            </div>
-            <div class="col-md-5">
-              <svg
-                class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
-                height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 500x500"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-              </svg>
+          <div class="features">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="info">
+                  <div class="icon icon-info">
+                    <i class="material-icons">chat</i>
+                  </div>
+                  <h4 class="info-title">Comment</h4>
+                  <p>
+                    Ask questions to get the most details on the positions you like.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="info">
+                  <div class="icon icon-success">
+                    <i class="material-icons">check</i>
+                  </div>
+                  <h4 class="info-title">Best Athletes</h4>
+                  <p>
+                    Select on an easy way the best positions that you are looking for.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="info">
+                  <div class="icon icon-danger">
+                    <i class="material-icons">favorite</i>
+                  </div>
+                  <h4 class="info-title">Favorite</h4>
+                  <p>
+                    Select and save your favourite positions.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-
-          <hr class="featurette-divider" />
-
-          <!-- /END THE FEATURETTES -->
         </div>
+        <!-- <div class="section text-center">
+          <h2 class="title">Here is our team</h2>
+          <div class="team">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="team-player">
+                  <div class="card card-plain">
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <img
+                        src="../public/public/assets/img/faces/avatar.jpg"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Gigi Hadid
+                      <br />
+                      <small class="card-description text-muted">Model</small>
+                    </h4>
+                    <div class="card-body">
+                      <p class="card-description">
+                        You can write here details about one of your team members. You can give more details about what
+                        they do. Feel free to add some
+                        <a href="#">links</a>
+                        for people to be able to follow them outside the site.
+                      </p>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-player">
+                  <div class="card card-plain">
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <img
+                        src="../public/public/assets/img/faces/christian.jpg"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Christian Louboutin
+                      <br />
+                      <small class="card-description text-muted">Designer</small>
+                    </h4>
+                    <div class="card-body">
+                      <p class="card-description">
+                        You can write here details about one of your team members. You can give more details about what
+                        they do. Feel free to add some
+                        <a href="#">links</a>
+                        for people to be able to follow them outside the site.
+                      </p>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-player">
+                  <div class="card card-plain">
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <img
+                        src="../public/assets/img/faces/kendall.jpg"
+                        alt="Thumbnail Image"
+                        class="img-raised rounded-circle img-fluid"
+                      />
+                    </div>
+                    <h4 class="card-title">
+                      Kendall Jenner
+                      <br />
+                      <small class="card-description text-muted">Model</small>
+                    </h4>
+                    <div class="card-body">
+                      <p class="card-description">
+                        You can write here details about one of your team members. You can give more details about what
+                        they do. Feel free to add some
+                        <a href="#">links</a>
+                        for people to be able to follow them outside the site.
+                      </p>
+                    </div>
+                    <div class="card-footer justify-content-center">
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                      <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="section section-contacts">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+              <h2 class="text-center title">Work with us</h2>
+              <h4 class="text-center description">
+                Divide details about your product or agency work into parts. Write a few lines about each one and
+                contact us about any further collaboration. We will responde get back to you in a couple of hours.
+              </h4>
+              <form class="contact-form">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Your Name</label>
+                      <input type="email" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Your Email</label>
+                      <input type="email" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+                  <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 ml-auto mr-auto text-center">
+                    <button class="btn btn-primary btn-raised">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> -->
       </div>
-      <!-- /.container -->
-
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>
-          © 2020 Company, Inc. ·
-          <a href="#">Privacy</a>
-          ·
-          <a href="#">Terms</a>
-        </p>
-      </footer>
-    </main>
+    </div>
   </div>
 </template>
 

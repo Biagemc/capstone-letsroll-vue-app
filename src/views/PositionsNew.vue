@@ -31,9 +31,7 @@
               <input type="text" class="form-control" v-model="positionSituation" />
             </div>
           </div>
-          <div class="button">
-            <a type="submit" class="btn btn-secondary" value="Submit">Create</a>
-          </div>
+          <button type="button" class="btn btn-primary">Primary</button>
         </form>
       </div>
     </section>
