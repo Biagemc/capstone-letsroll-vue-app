@@ -35,19 +35,19 @@
               <a id="positions-tag" class="nav-link" href="/positions">Browse Positions</a>
             </li>
             <li class="nav-item">
-              <a id="signup-tag" class="nav-link" href="/signup">Signup</a>
+              <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/signup">Signup</a>
             </li>
-            <li class="dropdown nav-item">
-              <a id="user-tag" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            <li v-if="isLoggedIn()" class="dropdown nav-item">
+              <a v-if="isLoggedIn()" id="user-tag" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <i class="material-icons">view_day</i>
                 User
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a class="dropdown-item" href="/login">
+                <a v-if="!isLoggedIn()" class="dropdown-item" href="/login">
                   <i class="material-icons">dns</i>
                   Login
                 </a>
-                <a class="dropdown-item" href="/logout">
+                <a v-if="isLoggedIn()" class="dropdown-item" href="/logout">
                   <i class="material-icons">exit_to_app</i>
                   Logout
                 </a>
@@ -117,4 +117,25 @@
 }
 </style>
 
-<script></script>
+<script>
+export default {
+  data: function() {
+    return {
+      userName: parseInt(localStorage.getItem("name")),
+    };
+  },
+  methods: {
+    isLoggedIn: function() {
+      console.log(" i am checking if i'm logged in");
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getUserId: function() {
+      return parseInt(localStorage.getItem("user_id"));
+    },
+  },
+};
+</script>

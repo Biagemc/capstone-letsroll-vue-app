@@ -9,11 +9,7 @@
                 <h4 class="card-title">Login</h4>
               </div>
               <div class="card-body">
-                <p
-                  class="card-description text-center"
-                  v-bind:key="error.id"
-                  v-for="error in errors"
-                >{{error}}</p>
+                <p class="card-description text-center" v-bind:key="error.id" v-for="error in errors">{{ error }}</p>
 
                 <!-- <span class="bmd-form-group">
                   <div class="input-group">
@@ -42,22 +38,12 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password..."
-                      v-model="password"
-                    />
+                    <input type="password" class="form-control" placeholder="Password..." v-model="password" />
                   </div>
                 </span>
               </div>
               <div class="card-footer justify-content-center">
-                <input
-                  value="Submit"
-                  type="submit"
-                  href="/positions"
-                  class="btn btn-warning btn-link"
-                />
+                <input value="Submit" type="submit" href="/positions" class="btn btn-warning btn-link" />
               </div>
             </div>
           </form>
@@ -115,7 +101,9 @@ export default {
         .then(response => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$router.push("/");
+          localStorage.setItem("name", response.data.name);
+          localStorage.setItem("user_id", response.data.user_id);
+          this.$router.push("/positions");
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];
