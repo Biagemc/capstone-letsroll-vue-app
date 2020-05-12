@@ -30,6 +30,36 @@
           </div>
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
+              <!-- Comment Create -->
+              <h3 class="text-center">
+                Post your comment
+                <br />
+              </h3>
+              <div class="media-body">
+                <form v-on:submit.prevent="submit()">
+                  <span class="bmd-form-group">
+                    <textarea
+                      class="form-control"
+                      placeholder="Write some nice stuff or nothing..."
+                      rows="6"
+                      spellcheck="false"
+                      v-model="newCommentContent"
+                    ></textarea>
+                  </span>
+                  <div class="media-footer">
+                    <i class="material-icons">add_circle_outline</i>
+                    Post
+                    <input
+                      class="btn btn-primary btn-link float-right"
+                      rel="tooltip"
+                      title=""
+                      data-original-title="add Comment"
+                      type="submit"
+                    />
+                  </div>
+                </form>
+              </div>
+              <!-- end of comment create -->
               <div class="media-area" v-bind:key="comment.id" v-for="comment in position.discussion">
                 <div class="media">
                   <div class="media-body">
@@ -40,21 +70,17 @@
                     <p>
                       {{ comment.content }}
                     </p>
-
                     <div class="media-footer">
                       <a
-                        href="#pablo"
+                        href="#"
+                        v-on:click="deleteComment(comment)"
                         class="btn btn-primary btn-link float-right"
                         rel="tooltip"
                         title=""
                         data-original-title="Reply to Comment"
                       >
-                        <i class="material-icons">reply</i>
-                        Reply
-                      </a>
-                      <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                        <i class="material-icons">favorite</i>
-                        25
+                        <i class="material-icons">clear</i>
+                        Delete
                       </a>
                     </div>
                   </div>
@@ -114,7 +140,7 @@ export default {
     return {
       message: "List of Positions",
       position: {},
-
+      newCommentContent: "",
       playerVars: {
         autoplay: 1,
       },
@@ -134,6 +160,28 @@ export default {
       let videoId = getIdFromUrl(url);
       // console.log(this.videoId);
       return videoId;
+    },
+    submit: function() {
+      let params = {
+        content: this.newCommentContent,
+        user_id: 1,
+        post_id: 1,
+      };
+      axios.post("/api/comments", params).then(response => {
+        console.log("Adding this comment", response.data);
+        // let index = this.position.discussion.indexOf(parameter);
+        this.position.discussion.push(response.data);
+        this.newCommentContent = "";
+      });
+    },
+    deleteComment: function(parameter) {
+      console.log("Deleting position...");
+      console.log(parameter.id);
+      axios.delete(`api/comments/${parameter.id}`).then(response => {
+        console.log(response.data);
+        let index = this.position.discussion.indexOf(parameter);
+        this.position.discussion.splice(index, 1);
+      });
     },
   },
 };

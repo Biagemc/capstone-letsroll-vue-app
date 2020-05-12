@@ -28,11 +28,16 @@
                   </select>
                 </div>
                 <div class="form-group col-lg-3">
-                  <select id="inputState" class="form-control">
+                  <!-- <select id="inputState" class="form-control">
                     <option selected>Tags Type...</option>
                     <option v-for="position in positions">{{ position.tags }}</option>
-                  </select>
+                  </select> -->
+                  <span v-for="tag in tags">
+                    <input v-bind:value="tag.id" v-model="tagsSelected" type="checkbox" />
+                    {{ tag.name }}
+                  </span>
                 </div>
+                <h4>{{ tagsSelected }}</h4>
                 <button class="btn btn-primary btn-sm" v-on:click="getSearch()">Search</button>
               </div>
             </form>
@@ -134,6 +139,7 @@ export default {
       message: "Positions",
       positions: [],
       tags: [],
+      tagsSelected: [],
       currentPosition: {},
       nameFilter: "",
       sortAttribute: "name",
@@ -148,8 +154,8 @@ export default {
   created: function() {
     axios.get("/api/positions").then(response => {
       console.log(response.data);
-      this.positions = response.data;
-      this.tags = this.positions.tags;
+      this.positions = response.data.positions;
+      this.tags = response.data.tags;
     });
   },
   methods: {
@@ -162,7 +168,7 @@ export default {
       return videoId;
     },
     getSearch: function() {
-      axios.get("/api/positions?type=drills").then(response => {
+      axios.get("/api/positions?type=" + this.theCurrentValue).then(response => {
         console.log(response.data);
         this.positions = response.data;
       });
