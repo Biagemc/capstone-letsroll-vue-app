@@ -20,7 +20,7 @@
           <h4>Description:</h4>
           <h5>{{ position.description }}</h5>
         </div>
-        <div id="button-edit">
+        <div v-if="position.user_id === $parent.getUserId()" id="button-edit">
           <a v-bind:href="`/positions/${position.id}/edit`" class="btn btn-primary">Edit Info</a>
         </div>
         <!-- Comment section -->
@@ -72,6 +72,7 @@
                     </p>
                     <div class="media-footer">
                       <a
+                        v-if="comment.user_id === $parent.getUserId()"
                         href="#"
                         v-on:click="deleteComment(comment)"
                         class="btn btn-primary btn-link float-right"
@@ -162,10 +163,11 @@ export default {
       return videoId;
     },
     submit: function() {
+      console.log(this.position.post_id);
       let params = {
         content: this.newCommentContent,
-        user_id: 1,
-        post_id: 1,
+        user_id: this.$parent.getUserId(),
+        post_id: this.position.post,
       };
       axios.post("/api/comments", params).then(response => {
         console.log("Adding this comment", response.data);

@@ -164,7 +164,7 @@ export default {
     },
     getVideoId(url) {
       let videoId = getIdFromUrl(url);
-      // console.log(this.videoId);
+
       return videoId;
     },
     getSearch: function() {
