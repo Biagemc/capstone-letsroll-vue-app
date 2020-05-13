@@ -179,6 +179,7 @@ export default {
       if (this.typeSelected !== "") {
         typeParams += "type=" + this.typeSelected;
       }
+      console.log(this.tagsSelected, "this is tag selection");
       if (typeParams !== "") {
         tagParams += "&";
       }
