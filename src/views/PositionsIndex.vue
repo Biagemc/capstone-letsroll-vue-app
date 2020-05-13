@@ -83,7 +83,7 @@
                   <div v-bind:key="tag.id" v-for="tag in position.tags">
                     <form class="justify-content-center">
                       <div class="form-row">
-                        <div class="bootstrap-tagsinput warning-badge">
+                        <div class="bootstrap-tagsinput warning-badge col-1">
                           <span href="#" class="tag badge">#{{ tag.name }}</span>
                         </div>
                       </div>
@@ -183,7 +183,7 @@ export default {
       if (typeParams !== "") {
         tagParams += "&";
       }
-      if (this.tagsSelected !== []) {
+      if (this.tagsSelected > 0) {
         tagParams += "tag=" + this.tagsSelected;
       }
 

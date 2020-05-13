@@ -62,8 +62,8 @@
               </div>
             </div>
           </div>
-          <h4>{{ tagsSelected }}</h4>
-          <button type="button" class="btn btn-primary">Primary</button>
+
+          <button type="submit" class="btn btn-primary">Primary</button>
         </form>
       </div>
     </section>
@@ -101,11 +101,14 @@ export default {
   },
   methods: {
     submit: function() {
+      console.log(this.$parent.getUserId());
       let params = {
         name: this.positionName,
         url: this.positionUrl,
         description: this.positionDescription,
         situation: this.positionSituation,
+        tag: this.tagsSelected,
+        user_id: this.$parent.getUserId(),
       };
       axios
         .post("/api/positions", params)
