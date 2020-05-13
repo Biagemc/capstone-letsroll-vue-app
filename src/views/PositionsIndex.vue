@@ -9,8 +9,14 @@
 
             <form class="justify-content-center" v-on:submit.prevent="submit()">
               <div class="form-row">
-                <div class=" col-lg-4">
-                  <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
+                <div class="col-lg-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="nameFilter"
+                    list="names"
+                    placeholder="Search"
+                  />
                   <datalist id="names">
                     <option v-for="position in positions">{{ position.name }}</option>
                   </datalist>
@@ -20,10 +26,10 @@
                   <select
                     id="inputState"
                     class="form-control"
-                    v-bind:on-change="updateSelected(theCurrentValue)"
-                    v-model="theCurrentValue"
+                    v-bind:on-change="updateSelected(typeSelected)"
+                    v-model="typeSelected"
                   >
-                    <option v-model="theCurrentValue" selected></option>
+                    <option v-model="typeSelected" selected></option>
                     <option v-for="position in positions">{{ position.type }}</option>
                   </select>
                 </div>
@@ -31,14 +37,14 @@
                   <!-- <select id="inputState" class="form-control">
                     <option selected>Tags Type...</option>
                     <option v-for="position in positions">{{ position.tags }}</option>
-                  </select> -->
+                  </select>-->
                   <span v-for="tag in tags">
                     <input v-bind:value="tag.id" v-model="tagsSelected" type="checkbox" />
                     {{ tag.name }}
                   </span>
                 </div>
                 <h4>{{ tagsSelected }}</h4>
-                <button class="btn btn-primary btn-sm" v-on:click="getSearch()">Search</button>
+                <button type="submit" class="btn btn-primary btn-sm" v-on:click="submit()">Search</button>
               </div>
             </form>
             <!-- End form -->
@@ -54,7 +60,7 @@
               v-for="position in orderBy(filterBy(positions, nameFilter, 'name'), sortAttribute, 1)"
               v-on:click="currentPosition === position"
             >
-              <div class=" card-header card-header-image">
+              <div class="card-header card-header-image">
                 <div class="iframe-container embed-responsive embed-responsive-16by9">
                   <youtube
                     class="embed-responsive-item"
@@ -144,8 +150,7 @@ export default {
       nameFilter: "",
       sortAttribute: "name",
       selected: "",
-      theCurrentValue: "",
-      searchParams: "",
+      typeSelected: "",
       playerVars: {
         autoplay: 1,
       },
@@ -167,15 +172,29 @@ export default {
 
       return videoId;
     },
-    getSearch: function() {
-      axios.get("/api/positions?type=" + this.theCurrentValue).then(response => {
+    submit: function() {
+      let tagParams = "";
+      let typeParams = "";
+
+      if (this.typeSelected !== "") {
+        typeParams += "type=" + this.typeSelected;
+      }
+      if (typeParams !== "") {
+        tagParams += "&";
+      }
+      if (this.tagsSelected !== []) {
+        tagParams += "tag=" + this.tagsSelected;
+      }
+
+      axios.get("/api/positions?" + typeParams + tagParams).then(response => {
         console.log(response.data);
-        this.positions = response.data;
+        this.positions = response.data.positions;
+        this.tags = response.data.tags;
       });
     },
     updateSelected: function(valueSelected) {
       console.log(valueSelected);
-      this.theCurrentValue = valueSelected;
+      this.typeSelected = valueSelected;
     },
   },
 };

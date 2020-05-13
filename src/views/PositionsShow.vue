@@ -52,7 +52,7 @@
                     <input
                       class="btn btn-primary btn-link float-right"
                       rel="tooltip"
-                      title=""
+                      title
                       data-original-title="add Comment"
                       type="submit"
                     />
@@ -60,16 +60,18 @@
                 </form>
               </div>
               <!-- end of comment create -->
-              <div class="media-area" v-bind:key="comment.id" v-for="comment in position.discussion">
+              <div
+                class="media-area"
+                v-bind:key="comment.id"
+                v-for="comment in position.discussion"
+              >
                 <div class="media">
                   <div class="media-body">
                     <h4 class="media-heading">
                       {{ comment.user_name }}
                       <small>· {{ comment.created_at }}</small>
                     </h4>
-                    <p>
-                      {{ comment.content }}
-                    </p>
+                    <p>{{ comment.content }}</p>
                     <div class="media-footer">
                       <a
                         v-if="comment.user_id === $parent.getUserId()"
@@ -77,7 +79,7 @@
                         v-on:click="deleteComment(comment)"
                         class="btn btn-primary btn-link float-right"
                         rel="tooltip"
-                        title=""
+                        title
                         data-original-title="Reply to Comment"
                       >
                         <i class="material-icons">clear</i>
