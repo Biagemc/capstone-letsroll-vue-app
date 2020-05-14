@@ -1,93 +1,172 @@
 <template>
   <div class="positions-index">
-    <div class="container">
-      <div class="col-lg-12 ml-auto mr-auto text-center">
-        <div id="top-container" class>
-          <h3>{{ message }}</h3>
-          <div id="top-header">
-            <!-- form begin -->
+    <div class="main main-raised">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card card-refine card-plain card-rose">
+            <div class="card-body">
+              <h4 class="card-title">
+                Refine Search
+                <button
+                  class="btn btn-default btn-fab btn-fab-mini btn-link pull-right"
+                  rel="tooltip"
+                  title
+                  data-original-title="Reset Filter"
+                >
+                  <i class="material-icons">cached</i>
+                </button>
+              </h4>
+              <div id="accordion" role="tablist">
+                <!-- form begin -->
 
-            <form class="justify-content-center" v-on:submit.prevent="submit()">
-              <div class="form-row">
-                <div class="col-lg-4">
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="nameFilter"
-                    list="names"
-                    placeholder="Search"
-                  />
-                  <datalist id="names">
-                    <option v-for="position in positions">{{ position.name }}</option>
-                  </datalist>
-                </div>
+                <form class="justify-content-center" v-on:submit.prevent="submit()">
+                  <div class="card card-collapse">
+                    <div class="form-row">
+                      <div class="form-row mb-0">
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="nameFilter"
+                          list="names"
+                          placeholder="Search"
+                        />
+                        <datalist id="names">
+                          <option v-for="position in positions">{{ position.name }}</option>
+                        </datalist>
+                      </div>
+                      <!-- Type selection Form Begin -->
+                      <div class="card card-collapse">
+                        <div class="form-group">
+                          <label for="inputState">Types...</label>
 
-                <div class="form-group col-lg-3">
-                  <select
-                    id="inputState"
-                    class="form-control"
-                    v-bind:on-change="updateSelected(typeSelected)"
-                    v-model="typeSelected"
-                  >
-                    <option v-model="typeSelected" selected></option>
-                    <option v-for="position in positions">{{ position.type }}</option>
-                  </select>
-                </div>
-                <div class="form-group col-lg-3">
-                  <!-- <select id="inputState" class="form-control">
-                    <option selected>Tags Type...</option>
-                    <option v-for="position in positions">{{ position.tags }}</option>
-                  </select>-->
-                  <span v-for="tag in tags">
-                    <input v-bind:value="tag.id" v-model="tagsSelected" type="checkbox" />
-                    {{ tag.name }}
-                  </span>
-                </div>
-                <h4>{{ tagsSelected }}</h4>
-                <button type="submit" class="btn btn-primary btn-sm" v-on:click="submit()">Search</button>
-              </div>
-            </form>
-            <!-- End form -->
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div
-              id="listing"
-              class="card card-profile ml-auto mr-auto"
-              style="max-heigth: 100px;max-width: 280px;"
-              v-bind:key="position.id"
-              v-for="position in orderBy(filterBy(positions, nameFilter, 'name'), sortAttribute, 1)"
-              v-on:click="currentPosition === position"
-            >
-              <div class="card-header card-header-image">
-                <div class="iframe-container embed-responsive embed-responsive-16by9">
-                  <youtube
-                    class="embed-responsive-item"
-                    style="max-width: 280px;"
-                    gesture="media"
-                    allow="encrypted-media"
-                    allowfullscreen
-                    v-bind:video-id="getVideoId(position.url)"
-                    ref="youtube"
-                    @playing="playing"
-                  ></youtube>
-                </div>
-              </div>
-              <div class="card-body">
-                <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
-                <p class="card-text">{{ position.description }}</p>
-                <p class="card-category text-gray">{{ position.type }}</p>
-
-                <div class="card-footer justify-content-center">
-                  <div v-bind:key="tag.id" v-for="tag in position.tags">
-                    <form class="justify-content-center">
-                      <div class="form-row">
-                        <div class="bootstrap-tagsinput warning-badge col-1">
-                          <span href="#" class="tag badge">#{{ tag.name }}</span>
+                          <select
+                            role="tab"
+                            id="inputState"
+                            class="form-control mb-0"
+                            data-style="btn btn-link"
+                            v-bind:on-change="updateSelected(typeSelected)"
+                            v-model="typeSelected"
+                          >
+                            <option disabled>Choose Type...</option>
+                            <option></option>
+                            <option>drills</option>
+                            <option>sweeping</option>
+                            <option>takedown</option>
+                            <option>mounting</option>
+                            <option>passing</option>
+                            <option>submission</option>
+                          </select>
                         </div>
                       </div>
-                    </form>
+                    </div>
+                    <!-- Type selection form End -->
+                    <!-- Tags selection form begin -->
+                    <div class="card card-collapse">
+                      <div class="form-group">
+                        <div class="card-header" role="tab" id="headingThree">
+                          <h5 class="mb-0">
+                            <a
+                              class
+                              data-toggle="collapse"
+                              href="#collapseThree"
+                              aria-expanded="true"
+                              aria-controls="collapseThree"
+                            >
+                              Tags
+                              <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                          </h5>
+                        </div>
+
+                        <div
+                          id="collapseThree"
+                          class="collapse show"
+                          role="tabpanel"
+                          aria-labelledby="headingThree"
+                          style
+                        >
+                          <div class="card-body">
+                            <div v-for="tag in tags" class="form-check">
+                              <label class="form-check-label">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  v-bind:value="tag.id"
+                                  v-model="tagsSelected"
+                                />
+                                {{ tag.name }}
+                                <span
+                                  class="form-check-sign"
+                                >
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Tags selection form end -->
+
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-sm"
+                      v-on:click="submit()"
+                    >Search</button>
+                  </div>
+                </form>
+                <!-- End form -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 ml-auto mr-auto text-center">
+          <div id="top-container" class>
+            <h3>{{ message }}</h3>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div
+                id="listing"
+                class="card card-profile ml-auto mr-auto"
+                style="max-heigth: 100px;max-width: 280px;"
+                v-bind:key="position.id"
+                v-for="position in orderBy(filterBy(positions, nameFilter, 'name'), sortAttribute, 1)"
+                v-on:click="currentPosition === position"
+              >
+                <div class="card-header card-header-image">
+                  <div class="iframe-container embed-responsive embed-responsive-16by9">
+                    <youtube
+                      class="embed-responsive-item"
+                      style="max-width: 280px;"
+                      gesture="media"
+                      allow="encrypted-media"
+                      allowfullscreen
+                      v-bind:video-id="getVideoId(position.url)"
+                      ref="youtube"
+                      @playing="playing"
+                    ></youtube>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <a
+                    class="card-title"
+                    v-bind:href="`/positions/${position.id}`"
+                  >{{ position.name }}</a>
+                  <p class="card-text">{{ position.description }}</p>
+                  <p class="card-category text-gray">{{ position.type }}</p>
+
+                  <div class="card-footer justify-content-center">
+                    <div v-bind:key="tag.id" v-for="tag in position.tags">
+                      <form class="justify-content-center">
+                        <div class="form-row">
+                          <div class="bootstrap-tagsinput warning-badge col-1">
+                            <span href="#" class="tag badge">#{{ tag.name }}</span>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>

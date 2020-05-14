@@ -1,15 +1,13 @@
 <template>
   <div id="app">
     <nav
-      class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg "
+      class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"
       color-on-scroll="100"
       id="sectionsNav"
     >
       <div class="container">
         <div class="navbar-translate">
-          <a id="brand-name" class="navbar-brand" href="#">
-            #letsRoll
-          </a>
+          <a id="brand-name" class="navbar-brand" href="#">#letsRoll</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -38,7 +36,13 @@
               <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/signup">Signup</a>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
-              <a v-if="isLoggedIn()" id="user-tag" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <a
+                v-if="isLoggedIn()"
+                id="user-tag"
+                href="#"
+                class="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
                 <i class="material-icons">view_day</i>
                 User
               </a>
