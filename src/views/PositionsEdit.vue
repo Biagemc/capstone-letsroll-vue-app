@@ -1,52 +1,56 @@
 <template>
   <div class="positions-edit">
-    <section class="section" id="edit-section">
-      <div class="container-fluid">
-        <form v-on:submit.prevent="submit()">
-          <h1>Edit Position</h1>
-          <ul>
-            <li class="text-danger" v-for="error in errors">{{ error }}</li>
-          </ul>
-          <div class="row">
-            <div class="form-group col-xl-5">
-              <label>Name:</label>
-              <input type="text" class="form-control" v-model="position.name" />
+    <div class="main main-raised" id="section-edit">
+      <div class="section">
+        <div class="row">
+          <div class="col-lg-8 ml-auto">
+            <form v-on:submit.prevent="submit()">
+              <h1>Edit Position</h1>
+              <ul>
+                <li class="text-danger" v-for="error in errors">{{ error }}</li>
+              </ul>
+              <div class="row">
+                <div class="form-group col-xl-6">
+                  <label>Name:</label>
+                  <input type="text" class="form-control" v-model="position.name" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xl-6">
+                  <label>Url:</label>
+                  <input type="text" class="form-control" v-model="position.url" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xl-6">
+                  <label>Description:</label>
+                  <textarea type="text" class="form-control" v-model="position.description"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xl-6">
+                  <label>Type:</label>
+                  <input type="text" class="form-control" v-model="position.type" />
+                </div>
+              </div>
+              <div class="button">
+                <a type="submit" class="btn btn-primary" value="Submit">Save</a>
+              </div>
+            </form>
+            <div class="button">
+              <a v-on:click="deletePosition()" class="btn btn-danger">Delete Position</a>
             </div>
           </div>
-          <div class="row">
-            <div class="form-group col-xl-5">
-              <label>Url:</label>
-              <input type="text" class="form-control" v-model="position.url" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-xl-5">
-              <label>Description:</label>
-              <textarea type="text" class="form-control" v-model="position.description"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-xl-5">
-              <label>Type:</label>
-              <input type="text" class="form-control" v-model="position.type" />
-            </div>
-          </div>
-          <div class="button">
-            <a type="submit" class="btn btn-secondary" value="Submit">Save</a>
-          </div>
-        </form>
-        <div class="button">
-          <a v-on:click="deletePosition()" class="btn btn-danger">Delete Position</a>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
 <style>
-#edit-section {
-  align-content: left;
-  padding: 5% 15% 5%;
+.positions-edit {
+  align-content: center;
+  padding: 10rem 3rem 0rem;
 }
 
 .button {
