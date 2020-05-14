@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav
-      class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"
+      class="navbar navbar-color-on-scroll bg-white fixed-top navbar-expand-lg"
       color-on-scroll="100"
       id="sectionsNav"
     >
@@ -30,10 +30,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a id="positions-tag" class="nav-link" href="/positions">Browse Positions</a>
+              <a id="positions-tag" class="nav-link" href="/positions">Positions</a>
             </li>
             <li class="nav-item">
               <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/login">Login</a>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
               <a
@@ -47,11 +50,7 @@
                 User
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a v-if="!isLoggedIn()" class="dropdown-item" href="/login">
-                  <i class="material-icons">dns</i>
-                  Login
-                </a>
-                <a v-if="isLoggedIn()" class="dropdown-item" href="/logout">
+                <a id="logout-tag" v-if="isLoggedIn()" class="dropdown-item" href="/logout">
                   <i class="material-icons">exit_to_app</i>
                   Logout
                 </a>
@@ -79,16 +78,19 @@
 </template>
 
 <style>
-#nav-bar,
-.navbar {
-  background-color: #323232;
+/* Text Styles:
+font-family: 'Permanent Marker', cursive;
+font-family: 'Prompt', sans-serif; */
+
+#sectionsNav {
+  background-color: #ededed;
 }
 
 #brand-name {
-  font-family: "Ubuntu";
+  font-family: "Permanent Marker", cursive;
   font-size: 2rem;
-  font-weight: bold;
-  color: #323232;
+
+  color: #ffa41b;
 }
 
 #home-tag,
@@ -97,8 +99,11 @@
 #nav-cat,
 #signup-tag,
 #user-tag,
-#navbarDropdownMenuLink {
-  color: #323232;
+#navbarDropdownMenuLink,
+#logout-tag {
+  color: #ffa41b;
+  font-family: "Prompt", sans-serif;
+  font-size: 1.25rem;
 }
 
 .nav-item {

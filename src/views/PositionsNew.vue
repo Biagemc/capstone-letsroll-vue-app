@@ -101,9 +101,9 @@
 </template>
 
 <style>
-#section-new {
+.positions-new {
   align-content: center;
-  padding-top: 15%;
+  padding: 10rem 3rem 0rem;
 }
 </style>
 
