@@ -56,7 +56,7 @@
                       <textarea
                         class="form-control"
                         placeholder="Write some nice stuff or nothing..."
-                        rows="6"
+                        rows="3"
                         spellcheck="false"
                         v-model="newCommentContent"
                       ></textarea>
@@ -68,18 +68,14 @@
                         data-original-title="add Comment"
                         type="submit"
                       >
-                        <i class="material-icons">add_circle_outline</i>
+                        <i class="material-icons">add_circle_outline</i> Add Comment
                       </button>
                     </div>
                   </form>
                 </div>
                 <!-- end of comment create -->
                 <div class="container comments-area">
-                  <div
-                    class="media-area"
-                    v-bind:key="comment.id"
-                    v-for="comment in position.discussion"
-                  >
+                  <div class="media-area" v-bind:key="comment.id" v-for="comment in discussion">
                     <div class="media">
                       <div class="media-body">
                         <h4 class="media-heading">
@@ -155,6 +151,8 @@ export default {
     return {
       message: "List of Positions",
       position: {},
+      discussion: [],
+      post: "",
       newCommentContent: "",
       playerVars: {
         autoplay: 1,
@@ -164,7 +162,9 @@ export default {
   created: function() {
     axios.get("/api/positions/" + this.$route.params.id).then(response => {
       console.log("Success", response.data);
-      this.position = response.data;
+      this.position = response.data.position;
+      this.discussion = response.data.discussion;
+      this.post = response.data.post;
     });
   },
   methods: {
@@ -177,16 +177,17 @@ export default {
       return videoId;
     },
     submit: function() {
-      console.log(this.position.post_id);
+      console.log(this.post);
       let params = {
         content: this.newCommentContent,
         user_id: this.$parent.getUserId(),
-        post_id: this.position.post,
+        post_id: this.post,
       };
+      console.log(params);
       axios.post("/api/comments", params).then(response => {
         console.log("Adding this comment", response.data);
         // let index = this.position.discussion.indexOf(parameter);
-        this.position.discussion.push(response.data);
+        this.discussion.push(response.data);
         this.newCommentContent = "";
       });
     },
@@ -195,8 +196,8 @@ export default {
       console.log(parameter.id);
       axios.delete(`api/comments/${parameter.id}`).then(response => {
         console.log(response.data);
-        let index = this.position.discussion.indexOf(parameter);
-        this.position.discussion.splice(index, 1);
+        let index = this.discussion.indexOf(parameter);
+        this.discussion.splice(index, 1);
       });
     },
   },

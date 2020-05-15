@@ -225,6 +225,7 @@ export default {
       playerVars: {
         autoplay: 1,
       },
+      newsFeed: [],
     };
   },
   created: function() {
@@ -232,6 +233,10 @@ export default {
       console.log(response.data);
       this.positions = response.data.positions;
       this.tags = response.data.tags;
+    });
+    axios.get("https://www.graciemag.com/feed/").then(response => {
+      // this.newsFeed = response.data;
+      console.log(response.data);
     });
   },
   methods: {

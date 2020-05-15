@@ -34,7 +34,7 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group label-floating bmd-form-group col-xl-10">
+                    <div class="form-group label-floating bmd-form-group col-md-10">
                       <label
                         class="form-control-label bmd-label-floating"
                         for="exampleInputTextarea"
