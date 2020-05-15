@@ -7,7 +7,7 @@
     >
       <div class="container">
         <div class="navbar-translate">
-          <a id="brand-name" class="navbar-brand" href="#">#letsRoll</a>
+          <a v-bind:id="`brand-name${white}`" class="navbar-brand" href="#">#letsRoll</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -24,24 +24,34 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a id="home-tag" class="nav-link" href="/">
+              <a v-bind:id="`home-tag${white}`" class="nav-link" href="/">
                 Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a id="positions-tag" class="nav-link" href="/positions">Positions</a>
+              <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions">Positions</a>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/signup">Signup</a>
+              <a
+                v-if="!isLoggedIn()"
+                v-bind:id="`signup-tag${white}`"
+                class="nav-link"
+                href="/signup"
+              >Signup</a>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" id="signup-tag" class="nav-link" href="/login">Login</a>
+              <a
+                v-if="!isLoggedIn()"
+                v-bind:id="`signup-tag${white}`"
+                class="nav-link"
+                href="/login"
+              >Login</a>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
               <a
                 v-if="isLoggedIn()"
-                id="user-tag"
+                v-bind:id="`user-tag${white}`"
                 href="#"
                 class="dropdown-toggle nav-link"
                 data-toggle="dropdown"
@@ -50,11 +60,16 @@
                 User
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a id="logout-tag" v-if="isLoggedIn()" class="dropdown-item" href="/logout">
+                <a
+                  v-bind:id="`logout-tag${white}`"
+                  v-if="isLoggedIn()"
+                  class="dropdown-item"
+                  href="/logout"
+                >
                   <i class="material-icons">exit_to_app</i>
                   Logout
                 </a>
-                <a id="new-tag" class="dropdown-item" href="/positions/new">
+                <a v-bind:id="`new-tag${white}`" class="dropdown-item" href="/positions/new">
                   <i class="material-icons">create</i>
                   New Position
                 </a>
@@ -90,7 +105,27 @@ font-family: 'Prompt', sans-serif; */
   font-family: "Permanent Marker", cursive;
   font-size: 2rem;
 
-  color: #ffa41b;
+  color: black;
+}
+
+#brand-name-white {
+  font-family: "Permanent Marker", cursive;
+  font-size: 2rem;
+
+  color: #ffffff;
+}
+
+#home-tag-white,
+#new-tag-white,
+#positions-tag-white,
+#nav-cat-white,
+#signup-tag-white,
+#user-tag-white,
+#navbarDropdownMenuLink-white,
+#logout-tag-white {
+  color: #ffffff;
+  font-family: "Prompt", sans-serif;
+  font-size: 1.25rem;
 }
 
 #home-tag,
@@ -101,7 +136,7 @@ font-family: 'Prompt', sans-serif; */
 #user-tag,
 #navbarDropdownMenuLink,
 #logout-tag {
-  color: #ffa41b;
+  color: black;
   font-family: "Prompt", sans-serif;
   font-size: 1.25rem;
 }
@@ -131,7 +166,13 @@ export default {
   data: function() {
     return {
       userName: parseInt(localStorage.getItem("name")),
+      white: "",
     };
+  },
+  created: function() {
+    if (this.$route.path === "/") {
+      this.white = "-white";
+    }
   },
   methods: {
     isLoggedIn: function() {

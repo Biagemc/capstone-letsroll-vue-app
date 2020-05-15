@@ -28,13 +28,29 @@
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-xl-6">
-                  <label>Type:</label>
-                  <input type="text" class="form-control" v-model="position.type" />
+                <div class="form-group col-md-10">
+                  <label for="inputState">Type:</label>
+
+                  <select
+                    role="tab"
+                    id="inputState"
+                    class="form-control mb-0"
+                    data-style="btn btn-link"
+                    v-model="position.type"
+                  >
+                    <option disabled>{{position.type}}</option>
+                    <option></option>
+                    <option>drills</option>
+                    <option>sweeping</option>
+                    <option>takedown</option>
+                    <option>mounting</option>
+                    <option>passing</option>
+                    <option>submission</option>
+                  </select>
                 </div>
               </div>
               <div class="button">
-                <a type="submit" class="btn btn-primary" value="Submit">Save</a>
+                <button type="submit" class="btn btn-primary" value="Submit">Save</button>
               </div>
             </form>
             <div class="button">
@@ -86,7 +102,7 @@ export default {
         name: this.position.name,
         url: this.position.url,
         description: this.position.description,
-        situation: this.position.situation,
+        situation: this.position.type,
       };
       axios
         .patch(`/api/positions/${this.position.id}`, params)
