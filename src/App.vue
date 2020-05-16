@@ -61,6 +61,15 @@
               </a>
               <div class="dropdown-menu dropdown-with-icons">
                 <a
+                  v-bind:id="`profile-tag${white}`"
+                  v-if="isLoggedIn()"
+                  class="dropdown-item"
+                  v-bind:href="`/user-profile/${getUserId()}`"
+                >
+                  <i class="material-icons">face</i>
+                  My Profile
+                </a>
+                <a
                   v-bind:id="`logout-tag${white}`"
                   v-if="isLoggedIn()"
                   class="dropdown-item"
@@ -97,9 +106,9 @@
 font-family: 'Permanent Marker', cursive;
 font-family: 'Prompt', sans-serif; */
 
-#sectionsNav {
+/* #sectionsNav {
   background-color: #ededed;
-}
+} */
 
 #brand-name {
   font-family: "Permanent Marker", cursive;
@@ -116,26 +125,30 @@ font-family: 'Prompt', sans-serif; */
 }
 
 #home-tag-white,
-#new-tag-white,
 #positions-tag-white,
 #nav-cat-white,
 #signup-tag-white,
 #user-tag-white,
-#navbarDropdownMenuLink-white,
-#logout-tag-white {
+#navbarDropdownMenuLink-white {
   color: #ffffff;
-  font-family: "Prompt", sans-serif;
+  font-family: "Permanent Marker", cursive;
   font-size: 1.25rem;
 }
 
 #home-tag,
-#new-tag,
 #positions-tag,
 #nav-cat,
-#signup-tag,
-#user-tag,
+#user-tag {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.25rem;
+}
+
 #navbarDropdownMenuLink,
-#logout-tag {
+#logout-tag,
+#profile-tag,
+#new-tag,
+#signup-tag {
   color: black;
   font-family: "Prompt", sans-serif;
   font-size: 1.25rem;

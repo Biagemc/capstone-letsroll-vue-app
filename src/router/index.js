@@ -8,6 +8,7 @@ import PositionsNew from "../views/PositionsNew.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import UserProfile from "../views/UserProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/user-profile/:id",
+    name: "user-profile",
+    component: UserProfile,
   },
   {
     path: "/positions",
