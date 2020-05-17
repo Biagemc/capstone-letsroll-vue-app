@@ -210,8 +210,13 @@ import { getIdFromUrl } from "vue-youtube";
 export default {
   data: function() {
     return {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       message: "My Profile",
-      userData: {},
+      userData: [],
       errors: [],
       editMode: false,
       currentPosition: {},
@@ -244,14 +249,10 @@ export default {
         afiliation: this.userData.afiliation,
         belt: this.userData.belt,
       };
-      axios
-        .patch("/api/users/" + this.$parent.getUserId(), params)
-        .then(response => {
-          this.$router.push(`/user-profile/${this.userData.id}`);
-        })
-        .cacth(error => {
-          this.errors = error.response.data.errors;
-        });
+      console.log(params);
+      axios.patch("/api/users/" + this.$parent.getUserId(), params).then(response => {
+        this.editMode = false;
+      });
     },
   },
 };

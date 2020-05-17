@@ -234,10 +234,6 @@ export default {
       this.positions = response.data.positions;
       this.tags = response.data.tags;
     });
-    axios.get("https://www.graciemag.com/feed/").then(response => {
-      // this.newsFeed = response.data;
-      console.log(response.data);
-    });
   },
   methods: {
     playing() {
@@ -272,6 +268,11 @@ export default {
     updateSelected: function(valueSelected) {
       console.log(valueSelected);
       this.typeSelected = valueSelected;
+    },
+  },
+  computed: {
+    player() {
+      return this.$refs.youtube.player;
     },
   },
 };
