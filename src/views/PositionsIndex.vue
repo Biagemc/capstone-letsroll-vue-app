@@ -18,7 +18,6 @@
               </h4>
               <div id="accordion" role="tablist">
                 <!-- form begin -->
-
                 <form class="justify-content-center" v-on:submit.prevent="submit()">
                   <div class="card card-collapse">
                     <div class="form-group">
@@ -70,7 +69,6 @@
                           </a>
                         </h5>
                       </div>
-
                       <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style>
                         <div class="card-body">
                           <div v-for="tag in tags" class="form-check">
@@ -91,9 +89,7 @@
                       </div>
                     </div>
                   </div>
-
                   <!-- Tags selection form end -->
-
                   <button type="submit" class="btn btn-primary btn-sm">Search</button>
                 </form>
                 <!-- End form -->
@@ -180,11 +176,6 @@
   padding: 2rem;
 }
 
-/* #content .container-fluid {
-  padding: 3% 5%;
-  align-content: center;
-} */
-
 .positions-index {
   padding-top: 10rem;
 }
@@ -230,30 +221,20 @@ export default {
     },
     getVideoId(url) {
       let videoId = getIdFromUrl(url);
-
       return videoId;
     },
     submit: function() {
       var tagsFiltered = this.tagsSelected.filter(tag => tag !== Object);
-      console.log(tagsFiltered);
       var tagsArray = JSON.stringify(tagsFiltered);
-      console.log(this.typeSelected);
       var tagsSelectedUrl = "";
       if (tagsFiltered.length > 0 && this.typeSelected !== "") {
-        console.log("Inside tags IF", tagsArray);
         tagsSelectedUrl += "&tag=" + tagsArray;
-        console.log("Inside tags IF after", tagsSelectedUrl);
       } else if (tagsFiltered.length > 0) {
         tagsSelectedUrl += "tag=" + tagsArray;
       }
       if (this.typeSelected !== "") {
-        console.log("inside if", this.typeSelected);
         var typeSelectedUrl = "type=" + this.typeSelected;
-        console.log(typeSelectedUrl);
       }
-      console.log("This is type paramsURL", typeSelectedUrl);
-      console.log("This is tag paramsURL", tagsSelectedUrl);
-      console.log(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`);
       axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
         console.log(response.data);
         this.positions = response.data.positions;
@@ -271,7 +252,7 @@ export default {
         position_id: positionId,
         user_id: this.$parent.getUserId(),
       };
-      console.log(params);
+
       axios.post("/api/favourites", params).then(response => {
         console.log(response.data);
       });

@@ -105,7 +105,6 @@
               </div>
             </div>
           </div>
-
           <!-- End of comment section -->
         </div>
       </div>
@@ -181,27 +180,25 @@ export default {
     },
     getVideoId(url) {
       let videoId = getIdFromUrl(url);
-      // console.log(this.videoId);
+
       return videoId;
     },
     submit: function() {
-      console.log(this.post);
       let params = {
         content: this.newCommentContent,
         user_id: this.$parent.getUserId(),
         post_id: this.post,
       };
-      console.log(params);
+
       axios.post("/api/comments", params).then(response => {
         console.log("Adding this comment", response.data);
-        // let index = this.position.discussion.indexOf(parameter);
         this.discussion.push(response.data);
         this.newCommentContent = "";
       });
     },
     deleteComment: function(parameter) {
       console.log("Deleting position...");
-      console.log(parameter.id);
+
       axios.delete(`api/comments/${parameter.id}`).then(response => {
         console.log(response.data);
         let index = this.discussion.indexOf(parameter);

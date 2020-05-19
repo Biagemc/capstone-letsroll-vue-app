@@ -25,20 +25,14 @@
                   <div class="row">
                     <div class="form-group col-md-10">
                       <label>Url:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Youtube link"
-                        v-model="positionUrl"
-                      />
+                      <input type="text" class="form-control" placeholder="Youtube link" v-model="positionUrl" />
                     </div>
                   </div>
                   <div class="row">
                     <div class="form-group label-floating bmd-form-group col-md-10">
-                      <label
-                        class="form-control-label bmd-label-floating"
-                        for="exampleInputTextarea"
-                      >You can write your description here...</label>
+                      <label class="form-control-label bmd-label-floating" for="exampleInputTextarea">
+                        You can write your description here...
+                      </label>
                       <textarea
                         class="form-control"
                         rows="5"
@@ -130,7 +124,6 @@ export default {
   },
   methods: {
     submit: function() {
-      console.log(this.$parent.getUserId());
       let params = {
         name: this.positionName,
         url: this.positionUrl,

@@ -87,29 +87,6 @@
               </div>
               <div v-if="editMode === true" class="row">
                 <div class="col-md-8 ml-auto mr-auto">
-                  <!-- <form v-on:submit.prevent="upload()"> -->
-                  <!-- <div class="row">
-                    <input multiple type="file" label="Add your avatar picture" chips @change="onAddFiles" />
-                    <button type="submit">Upload test</button>
-                    <button id="upload_widget" class="cloudinary-button">Upload files</button> -->
-                  <!-- <div class="form-group form-file-upload form-file-simple col-md-6 ml-auto mr-auto">
-                        <input
-                          type="file"
-                          class="inputFileHidden"
-                          accept="image/png, image/jpeg"
-                          @change="handleFileChange($event)"
-                        />
-                        <div class="input-group">
-                          <input type="text" class="form-control inputFileVisible" placeholder="Single File" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-fab btn-round btn-primary">
-                              <i class="material-icons">attach_file</i>
-                            </button>
-                          </span>
-                        </div>
-                      </div> -->
-                  <!-- </div> -->
-                  <!-- </form> -->
                   <form v-on:submit.prevent="submit()">
                     <h4 class="h4">Update My Info</h4>
                     <ul>
@@ -334,82 +311,6 @@ export default {
         this.userData.favourites.splice(index, 1);
       });
     },
-
-    // prepareFormData: function() {
-    //   this.formData = new FormData();
-    //   this.formData.append("ud1eyem5", this.preset);
-    //   this.formData.append("file", this.fileContents);
-    // },
-    // handleFileChange: function(event) {
-    //   console.log(event);
-    //   this.file = event.target.files[0];
-    //   this.filesSelected = event.target.files.length;
-    //   console.log("Console log 2...", this.file, this.filesSelected);
-    // },
-    // upload: function() {
-    //   var myWidget = cloudinary.createUploadWidget(
-    //     {
-    //       cloudName: "biagemc",
-    //       uploadPreset: "ud1eyem5",
-    //     },
-    //     (error, result) => {
-    //       if (!error && result && result.event === "success") {
-    //         console.log("Done! Here is the image info: ", result.info);
-    //       }
-    //     }
-    //   );
-    //   document.getElementById("upload_widget").addEventListener(
-    //     "click",
-    //     function() {
-    //       myWidget.open();
-    //     },
-    //     false
-    //   );
-    // },
-    // onAddFiles(files) {
-    //   if (files.length > 0) {
-    //     files.forEach(file => {
-    //       window.console.log(file);
-    //       this.uploadFileToCloudinary(file).then(fileResponse => {
-    //         this.files.push(fileResponse);
-    //       });
-    //     });
-    //   }
-    // },
-    // uploadFileToCloudinary(file) {
-    //   return new Promise(function(resolve, reject) {
-    //     //Ideally these to lines would be in a .env file
-    //     const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/biagemc/upload";
-    //     const CLOUDINARY_UPLOAD_PRESET = "ud1eyem5";
-    //     let formData = new FormData();
-    //     formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-    //     formData.append("folder", "letsRoll App");
-    //     formData.append("file", file);
-    //     let request = new XMLHttpRequest();
-    //     request.open("POST", CLOUDINARY_URL, true);
-    //     request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    //     request.onreadystatechange = () => {
-    //       // File uploaded successfully
-    //       if (request.readyState === 4 && request.status === 200) {
-    //         let response = JSON.parse(request.responseText);
-    //         resolve(response);
-    //       }
-    //       // Not successfull, let find our what happened
-    //       if (request.status !== 200) {
-    //         let response = JSON.parse(request.responseText);
-    //         let error = response.error.message;
-    //         this.errorText = "error uploading files " + error;
-    //         this.isError = true;
-    //         reject(error);
-    //       }
-    //     };
-    //     request.onerror = err => {
-    //       alert("error: " + err);
-    //       reject(err);
-    //     };
-    //     request.send(formData);
-    //   });
-    // },
   },
 };
 </script>

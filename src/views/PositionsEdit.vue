@@ -40,7 +40,7 @@
                         data-style="btn btn-link"
                         v-model="position.type"
                       >
-                        <option disabled>{{position.type}}</option>
+                        <option disabled>{{ position.type }}</option>
                         <option></option>
                         <option>drills</option>
                         <option>sweeping</option>
@@ -106,7 +106,6 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
       position: {},
       errors: [],
       tagsSelected: [],
