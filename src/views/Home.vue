@@ -3,7 +3,7 @@
     <div
       class="page-header header-filter"
       data-parallax="true"
-      style="background-image: url('https://res.cloudinary.com/daopqmnvp/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg')"
+      style="background-image: url('https://res.cloudinary.com/biagemc/image/upload/v1588214380/letsRoll%20App/jiu-photo-1_g9ovmo.jpg')"
     >
       <div class="container">
         <div class="row">

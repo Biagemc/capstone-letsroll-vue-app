@@ -22,13 +22,7 @@
                 <form class="justify-content-center" v-on:submit.prevent="submit()">
                   <div class="card card-collapse">
                     <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="nameFilter"
-                        list="names"
-                        placeholder="Search"
-                      />
+                      <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
                       <datalist id="names">
                         <option v-for="position in positions">{{ position.name }}</option>
                       </datalist>
@@ -77,13 +71,7 @@
                         </h5>
                       </div>
 
-                      <div
-                        id="collapseThree"
-                        class="collapse"
-                        role="tabpanel"
-                        aria-labelledby="headingThree"
-                        style
-                      >
+                      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style>
                         <div class="card-body">
                           <div v-for="tag in tags" class="form-check">
                             <label class="form-check-label">
@@ -94,9 +82,7 @@
                                 v-model="tagsSelected"
                               />
                               {{ tag.name }}
-                              <span
-                                class="form-check-sign"
-                              >
+                              <span class="form-check-sign">
                                 <span class="check"></span>
                               </span>
                             </label>
@@ -108,7 +94,7 @@
 
                   <!-- Tags selection form end -->
 
-                  <button type="submit" class="btn btn-primary btn-sm" v-on:click="submit()">Search</button>
+                  <button type="submit" class="btn btn-primary btn-sm">Search</button>
                 </form>
                 <!-- End form -->
               </div>
@@ -144,10 +130,13 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <a
-                    class="card-title"
-                    v-bind:href="`/positions/${position.id}`"
-                  >{{ position.name }}</a>
+                  <button
+                    v-on:click="addToFavourites(position.id)"
+                    class="btn btn-default btn-fab btn-fab-mini btn-link pull-right"
+                  >
+                    <i class="material-icons">add_circle_outline</i>
+                  </button>
+                  <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
                   <p class="card-text">{{ position.description }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -234,10 +223,6 @@ export default {
       this.positions = response.data.positions;
       this.tags = response.data.tags;
     });
-    axios.get("https://www.graciemag.com/feed/").then(response => {
-      // this.newsFeed = response.data;
-      console.log(response.data);
-    });
   },
   methods: {
     playing() {
@@ -249,29 +234,47 @@ export default {
       return videoId;
     },
     submit: function() {
-      let tagParams = "";
-      let typeParams = "";
-
+      var tagsFiltered = this.tagsSelected.filter(tag => tag !== Object);
+      console.log(tagsFiltered);
+      var tagsArray = JSON.stringify(tagsFiltered);
+      console.log(this.typeSelected);
+      var tagsSelectedUrl = "";
+      if (tagsFiltered.length > 0 && this.typeSelected !== "") {
+        console.log("Inside tags IF", tagsArray);
+        tagsSelectedUrl += "&tag=" + tagsArray;
+        console.log("Inside tags IF after", tagsSelectedUrl);
+      } else if (tagsFiltered.length > 0) {
+        tagsSelectedUrl += "tag=" + tagsArray;
+      }
       if (this.typeSelected !== "") {
-        typeParams += "type=" + this.typeSelected;
+        console.log("inside if", this.typeSelected);
+        var typeSelectedUrl = "type=" + this.typeSelected;
+        console.log(typeSelectedUrl);
       }
-      console.log(this.tagsSelected, "this is tag selection");
-      if (typeParams !== "") {
-        tagParams += "&";
-      }
-      if (this.tagsSelected > 0) {
-        tagParams += "tag=" + this.tagsSelected;
-      }
-
-      axios.get("/api/positions?" + typeParams + tagParams).then(response => {
+      console.log("This is type paramsURL", typeSelectedUrl);
+      console.log("This is tag paramsURL", tagsSelectedUrl);
+      console.log(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`);
+      axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
         console.log(response.data);
         this.positions = response.data.positions;
         this.tags = response.data.tags;
+        this.typeSelected = "";
+        var typeSelectedUrl = "";
+        var tagsSelectedUrl = "";
       });
     },
     updateSelected: function(valueSelected) {
-      console.log(valueSelected);
       this.typeSelected = valueSelected;
+    },
+    addToFavourites: function(positionId) {
+      let params = {
+        position_id: positionId,
+        user_id: this.$parent.getUserId(),
+      };
+      console.log(params);
+      axios.post("/api/favourites", params).then(response => {
+        console.log(response.data);
+      });
     },
   },
 };

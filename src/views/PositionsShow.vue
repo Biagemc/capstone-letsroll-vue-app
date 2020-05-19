@@ -42,9 +42,6 @@
           <div class="row">
             <div class="col-md-10 ml-auto mr-auto">
               <div id="comments">
-                <div class="title">
-                  <h3>Comments</h3>
-                </div>
                 <!-- Comment Create -->
                 <h3 class="text-center">
                   Post your comment
@@ -68,13 +65,17 @@
                         data-original-title="add Comment"
                         type="submit"
                       >
-                        <i class="material-icons">add_circle_outline</i> Add Comment
+                        <i class="material-icons">add_circle_outline</i>
+                        Add Comment
                       </button>
                     </div>
                   </form>
                 </div>
                 <!-- end of comment create -->
                 <div class="container comments-area">
+                  <div class="title">
+                    <h3>{{ totalComments }}</h3>
+                  </div>
                   <div class="media-area" v-bind:key="comment.id" v-for="comment in discussion">
                     <div class="media">
                       <div class="media-body">
@@ -154,6 +155,7 @@ export default {
       discussion: [],
       post: "",
       newCommentContent: "",
+      totalComments: "",
       playerVars: {
         autoplay: 1,
       },
@@ -165,6 +167,12 @@ export default {
       this.position = response.data.position;
       this.discussion = response.data.discussion;
       this.post = response.data.post;
+      this.totalComments = this.discussion.length;
+      if (this.totalComments > 0) {
+        this.totalComments = this.discussion.length + " Comments";
+      } else {
+        this.totalComments = this.discussion.length + " Comment";
+      }
     });
   },
   methods: {
