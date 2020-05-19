@@ -14,17 +14,20 @@
               probably won&apos;t have a better chance to unlock all your potential.
             </h4>
             <br />
-
-            <a href="/signup" class="btn btn-danger btn-raised btn-lg">
-              <i class="fa fa-play"></i>
-              Signup
-              <div class="ripple-container"></div>
-            </a>
-            <a href="/login" class="btn btn-info btn-raised btn-lg">
-              <i class="fa fa-play"></i>
-              Login
-              <div class="ripple-container"></div>
-            </a>
+            <div class="row justify-content-around">
+              <div class="button col-9 ">
+                <a id="btn-signup" href="/signup" class="btn btn-danger btn-raised btn-lg">
+                  <i class="fa fa-play"></i>
+                  Signup
+                  <div class="ripple-container"></div>
+                </a>
+                <a id="btn-login" href="/login" class="btn btn-info btn-raised btn-lg">
+                  <i class="fa fa-play"></i>
+                  Login
+                  <div class="ripple-container"></div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -87,6 +90,15 @@
 <style>
 .marketing {
   padding: 10rem 3rem 10rem 3rem;
+}
+
+#btn-signup {
+  width: 10rem;
+  padding: 1rem;
+}
+#btn-login {
+  width: 10rem;
+  padding: 1rem;
 }
 </style>
 

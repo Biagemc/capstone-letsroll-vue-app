@@ -227,14 +227,24 @@ export default {
       var tagsFiltered = this.tagsSelected.filter(tag => tag !== Object);
       var tagsArray = JSON.stringify(tagsFiltered);
       var tagsSelectedUrl = "";
+      var typeSelectedUrl = "";
+      console.log("This is type", this.typeSelected);
+      console.log("This is tag", tagsArray);
+
+      if (this.typeSelected !== "") {
+        typeSelectedUrl = "type=" + this.typeSelected;
+        console.log("Inside Type IF", typeSelectedUrl);
+      }
       if (tagsFiltered.length > 0 && this.typeSelected !== "") {
         tagsSelectedUrl += "&tag=" + tagsArray;
+        console.log("Inside Tag IF", tagsSelectedUrl);
       } else if (tagsFiltered.length > 0) {
         tagsSelectedUrl += "tag=" + tagsArray;
+        console.log("Inside Tag IF", tagsSelectedUrl);
       }
-      if (this.typeSelected !== "") {
-        var typeSelectedUrl = "type=" + this.typeSelected;
-      }
+      console.log("Outside Type IF", typeSelectedUrl);
+      console.log("Outside Tag IF", tagsSelectedUrl);
+      console.log(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`);
       axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
         console.log(response.data);
         this.positions = response.data.positions;
