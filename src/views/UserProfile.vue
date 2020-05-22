@@ -110,7 +110,7 @@
                         <div class="row">
                           <div class="form-group col-md-10 ml-auto mr-auto">
                             <label>Gym:</label>
-                            <input type="text" class="form-control " v-model="userData.gym" />
+                            <input type="text" class="form-control" v-model="userData.gym" />
                           </div>
                         </div>
                         <div class="row">
@@ -166,7 +166,10 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                      <a
+                        class="card-title"
+                        v-bind:href="`/positions/${position.id}`"
+                      >{{ position.name }}</a>
                       <p class="card-text">{{ position.description }}</p>
                       <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -212,15 +215,20 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${favouritePosition.position.id}`">
-                        {{ favouritePosition.position.name }}
-                      </a>
+                      <a
+                        class="card-title"
+                        v-bind:href="`/positions/${favouritePosition.position.id}`"
+                      >{{ favouritePosition.position.name }}</a>
                       <p class="card-text">{{ favouritePosition.position.description }}</p>
                       <p class="card-category text-gray">{{ favouritePosition.position.type }}</p>
 
                       <div class="card-footer justify-content-center">
                         <div class="row">
-                          <div class="col-12" v-bind:key="tag.id" v-for="tag in favouritePosition.position.tags">
+                          <div
+                            class="col-12"
+                            v-bind:key="tag.id"
+                            v-for="tag in favouritePosition.position.tags"
+                          >
                             <div class="bootstrap-tagsinput warning-badge col-1">
                               <span href="#" class="tag badge">#{{ tag.name }}</span>
                             </div>
@@ -228,7 +236,7 @@
                         </div>
                       </div>
                       <button
-                        v-on:click="removeFromFavourites(favouritePosition.favourite_id)"
+                        v-on:click="removeFromFavourites(favouritePosition)"
                         class="btn btn-primary btn-fab btn-fab-mini btn-round"
                       >
                         <i class="material-icons">remove_circle_outline</i>
@@ -305,8 +313,9 @@ export default {
     removeFromFavourites: function(theId) {
       console.log("Removing position from favourites...");
 
-      axios.delete(`api/favourites/${theId}`).then(response => {
+      axios.delete(`api/favourites/${theId.favourite_id}`).then(response => {
         console.log(response.data);
+        console.log(theId);
         let index = this.userData.favourites.indexOf(theId);
         this.userData.favourites.splice(index, 1);
       });

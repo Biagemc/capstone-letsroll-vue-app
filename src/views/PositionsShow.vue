@@ -44,7 +44,7 @@
               <div id="comments">
                 <!-- Comment Create -->
                 <h3 class="text-center">
-                  Post your comment
+                  Post a comment
                   <br />
                 </h3>
                 <div class="media-body">
@@ -73,11 +73,20 @@
                 </div>
                 <!-- end of comment create -->
                 <div class="container comments-area">
-                  <div class="title">
+                  <div class="title text-center">
                     <h3>{{ totalComments }}</h3>
                   </div>
                   <div class="media-area" v-bind:key="comment.id" v-for="comment in discussion">
                     <div class="media">
+                      <a class="float-left" href="#">
+                        <div class="avatar">
+                          <img
+                            class="media-object"
+                            v-bind:src="comment.user_avatar"
+                            alt="user-avatar"
+                          />
+                        </div>
+                      </a>
                       <div class="media-body">
                         <h4 class="media-heading">
                           {{ comment.user_name }}

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav
-      class="navbar navbar-color-on-scroll bg-white fixed-top navbar-expand-lg"
+      v-bind:class="`navbar navbar-color-on-scroll bg${navClass} fixed-top navbar-expand-lg`"
       color-on-scroll="100"
       id="sectionsNav"
     >
@@ -33,10 +33,20 @@
               <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions">Positions</a>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" v-bind:id="`signup-tag${white}`" class="nav-link" href="/signup">Signup</a>
+              <a
+                v-if="!isLoggedIn()"
+                v-bind:id="`signup-tag${white}`"
+                class="nav-link"
+                href="/signup"
+              >Signup</a>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" v-bind:id="`login-tag${white}`" class="nav-link" href="/login">Login</a>
+              <a
+                v-if="!isLoggedIn()"
+                v-bind:id="`login-tag${white}`"
+                class="nav-link"
+                href="/login"
+              >Login</a>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
               <a
@@ -59,7 +69,12 @@
                   <i class="material-icons">face</i>
                   My Profile
                 </a>
-                <a v-bind:id="`logout-tag${white}`" v-if="isLoggedIn()" class="dropdown-item" href="/logout">
+                <a
+                  v-bind:id="`logout-tag${white}`"
+                  v-if="isLoggedIn()"
+                  class="dropdown-item"
+                  href="/logout"
+                >
                   <i class="material-icons">exit_to_app</i>
                   Logout
                 </a>
@@ -172,11 +187,13 @@ export default {
   data: function() {
     return {
       white: "",
+      navClass: "-white",
     };
   },
   created: function() {
     if (this.$route.path === "/") {
       this.white = "-white";
+      this.navClass = "-dark";
     }
   },
   methods: {
