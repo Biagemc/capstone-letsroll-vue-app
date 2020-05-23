@@ -5,6 +5,8 @@ import axios from "axios";
 import VueYoutube from "vue-youtube";
 import Vue2Filters from "vue2-filters";
 import ProgressBar from "vuejs-progress-bar";
+import Cloudinary from "cloudinary-vue";
+import { CldContext, CldImage, CldVideo, CldTransformation, CldPoster } from "cloudinary-vue";
 
 Vue.use(ProgressBar);
 Vue.use(Vue2Filters);

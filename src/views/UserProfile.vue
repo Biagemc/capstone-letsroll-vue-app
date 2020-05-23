@@ -87,6 +87,20 @@
               </div>
               <div v-if="editMode === true" class="row">
                 <div class="col-md-8 ml-auto mr-auto">
+                  <h4 class="h4">Upload Image:</h4>
+                  <div class="cloudinary-uploader col-md-7 ml-auto mr-auto">
+                    <input type="file" class="form-control" v-on:change="onFileSelected($event)" />
+                    <!-- <input type="file" @change="onFileSelected($event)" multiple ref="fileInput" />
+                    <cl-upload class="align" />-->
+                    <span class="input-group-btn">
+                      <button @click="onUpload()" type="button" class="btn btn-sm btn-primary">
+                        <i class="material-icons">attach_file</i>Upload
+                      </button>
+                    </span>
+                  </div>
+                  <div v-if="photoInfo && photoInfo.secure_url">
+                    <img :src="photoInfo.secure_url" />
+                  </div>
                   <form v-on:submit.prevent="submit()">
                     <h4 class="h4">Update My Info</h4>
                     <ul>
@@ -280,6 +294,12 @@ export default {
       playerVars: {
         autoplay: 1,
       },
+      photoInfo: null,
+      selectedFile: null,
+      cloudinary: {
+        uploadPreset: `ud1eyem5`,
+        cloudName: "biagemc",
+      },
     };
   },
   created: function() {
@@ -287,6 +307,11 @@ export default {
       console.log(response.data);
       this.userData = response.data;
     });
+  },
+  computed: {
+    cloudinaryURL: function() {
+      return "https://api.cloudinary.com/v1_1/biagemc/image/upload";
+    },
   },
   methods: {
     playing() {
@@ -305,6 +330,7 @@ export default {
         gym: this.userData.gym,
         afiliation: this.userData.afiliation,
         belt: this.userData.belt,
+        avatar: this.photoInfo.url,
       };
       axios.patch("/api/users/" + this.$parent.getUserId(), params).then(response => {
         this.editMode = false;
@@ -319,6 +345,42 @@ export default {
         let index = this.userData.favourites.indexOf(theId);
         this.userData.favourites.splice(index, 1);
       });
+    },
+    onFileSelected: function(event) {
+      console.log(event);
+      console.log("FILE SELECTED");
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+    },
+    onUpload: function(event) {
+      const formData = new FormData();
+      formData.append("file", this.selectedFile);
+      formData.append("upload_preset", this.cloudinary.uploadPreset);
+
+      console.log(formData);
+      const instance = axios.create({
+        baseURL: this.cloudinaryURL,
+        headers: {
+          common: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        },
+      });
+      instance.defaults.headers.common = {};
+      instance.defaults.headers.common.accept = "application/x-www-form-urlencoded";
+      instance
+        .post(this.cloudinaryURL, formData, {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        })
+        .then(response => {
+          console.log(response.data);
+          this.photoInfo = response.data;
+        })
+        .catch(e => {
+          console.log(e);
+        });
     },
   },
 };
