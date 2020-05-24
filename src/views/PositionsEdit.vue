@@ -138,7 +138,7 @@ export default {
       console.log("Deleting position...");
       axios.delete(`api/positions/${this.position.id}`).then(response => {
         console.log(response.data);
-        this.$router.push("/positions");
+        this.$router.push("/positions-index");
       });
     },
   },

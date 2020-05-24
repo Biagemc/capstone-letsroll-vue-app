@@ -24,7 +24,7 @@ const routes = [
     component: UserProfile,
   },
   {
-    path: "/positions",
+    path: "/positions-index",
     name: "positions-index",
     component: PositionsIndex,
   },

@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions">Positions</a>
+              <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions-index">Positions</a>
             </li>
             <li class="nav-item">
               <a v-if="!isLoggedIn()" v-bind:id="`signup-tag${white}`" class="nav-link" href="/signup">Signup</a>
