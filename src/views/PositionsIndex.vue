@@ -21,7 +21,13 @@
                 <form class="justify-content-center" v-on:submit.prevent="submit()">
                   <div class="card card-collapse">
                     <div class="form-group">
-                      <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="nameFilter"
+                        list="names"
+                        placeholder="Search"
+                      />
                       <datalist id="names">
                         <option v-for="position in positions">{{ position.name }}</option>
                       </datalist>
@@ -69,7 +75,13 @@
                           </a>
                         </h5>
                       </div>
-                      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style>
+                      <div
+                        id="collapseThree"
+                        class="collapse"
+                        role="tabpanel"
+                        aria-labelledby="headingThree"
+                        style
+                      >
                         <div class="card-body">
                           <div v-for="tag in tags" class="form-check">
                             <label class="form-check-label">
@@ -80,7 +92,9 @@
                                 v-model="tagsSelected"
                               />
                               {{ tag.name }}
-                              <span class="form-check-sign">
+                              <span
+                                class="form-check-sign"
+                              >
                                 <span class="check"></span>
                               </span>
                             </label>
@@ -132,7 +146,10 @@
                   >
                     <i class="material-icons">add_circle_outline</i>
                   </button>
-                  <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                  <a
+                    class="card-title"
+                    v-bind:href="`/positions/${position.id}`"
+                  >{{ position.name }}</a>
                   <p class="card-text">{{ position.description }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -228,23 +245,16 @@ export default {
       var tagsArray = JSON.stringify(tagsFiltered);
       var tagsSelectedUrl = "";
       var typeSelectedUrl = "";
-      console.log("This is type", this.typeSelected);
-      console.log("This is tag", tagsArray);
 
       if (this.typeSelected !== "") {
         typeSelectedUrl = "type=" + this.typeSelected;
-        console.log("Inside Type IF", typeSelectedUrl);
       }
       if (tagsFiltered.length > 0 && this.typeSelected !== "") {
         tagsSelectedUrl += "&tag=" + tagsArray;
-        console.log("Inside Tag IF", tagsSelectedUrl);
       } else if (tagsFiltered.length > 0) {
         tagsSelectedUrl += "tag=" + tagsArray;
-        console.log("Inside Tag IF", tagsSelectedUrl);
       }
-      console.log("Outside Type IF", typeSelectedUrl);
-      console.log("Outside Tag IF", tagsSelectedUrl);
-      console.log(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`);
+
       axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
         console.log(response.data);
         this.positions = response.data.positions;

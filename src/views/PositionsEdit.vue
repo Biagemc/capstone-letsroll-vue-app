@@ -12,7 +12,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="row">
-                    <div class="form-group col-md-">
+                    <div class="form-group col-md-9">
                       <label>Name:</label>
                       <input type="text" class="form-control" v-model="position.name" />
                     </div>
@@ -24,13 +24,18 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-9">
                       <label>Description:</label>
-                      <textarea type="text" class="form-control" v-model="position.description"></textarea>
+                      <textarea
+                        type="text"
+                        class="form-control"
+                        rows="5"
+                        v-model="position.description"
+                      ></textarea>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-9">
                       <label for="inputState">Type:</label>
 
                       <select
@@ -71,11 +76,15 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button id="btn-save" type="submit" class="btn btn-primary">Save</button>
             </form>
 
             <div class="button">
-              <a v-on:click="deletePosition()" class="btn btn-danger">Delete Position</a>
+              <a
+                id="btn-delete"
+                v-on:click="deletePosition()"
+                class="btn btn-danger"
+              >Delete Position</a>
             </div>
           </div>
         </div>
@@ -90,14 +99,10 @@
   padding: 10rem 3rem 0rem;
 }
 
-.button {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.btn-secondary,
-.btn-danger {
-  width: 10rem;
+#btn-save,
+#btn-delete {
+  width: 8rem;
+  padding: 1rem;
 }
 </style>
 
@@ -114,7 +119,6 @@ export default {
   },
   created: function() {
     axios.get(`/api/positions/${this.$route.params.id}`).then(response => {
-      console.log(response.data);
       this.position = response.data.position;
       this.tags = response.data.tags;
     });

@@ -4,12 +4,19 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
           <form class="form" method action v-on:submit.prevent="submit()">
+            <ul>
+              <li v-for="error in errors">{{ error }}</li>
+            </ul>
             <div class="card card-login card-hidden">
               <div class="card-header text-center">
                 <h4 class="card-title">Signup</h4>
               </div>
               <div class="card-body">
-                <p class="card-description text-center" v-bind:key="error.id" v-for="error in errors">{{ error }}</p>
+                <p
+                  class="card-description text-center"
+                  v-bind:key="error.id"
+                  v-for="error in errors"
+                >{{ error }}</p>
                 <span class="bmd-form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -37,7 +44,12 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password..." v-model="password" />
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Password..."
+                      v-model="password"
+                    />
                   </div>
                 </span>
                 <span class="bmd-form-group">
@@ -99,6 +111,7 @@ export default {
           this.$router.push("/login");
         })
         .catch(error => {
+          console.log("update errors...", error.response);
           this.errors = error.response.data.errors;
         });
     },

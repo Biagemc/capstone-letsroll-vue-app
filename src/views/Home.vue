@@ -8,14 +8,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1 class="title">Your Jiu-Jitsu starts here.</h1>
+            <h1 class="title">Your Jiu-Jitsu will raise to another level.</h1>
             <h4>
               Now you have no excuses, it&apos;s time to level up your positions, because your competitors will. You
               probably won&apos;t have a better chance to unlock all your potential.
             </h4>
             <br />
             <div class="row justify-content-around">
-              <div class="button col-9 ">
+              <div class="button col-9">
                 <a id="btn-signup" href="/signup" class="btn btn-danger btn-raised btn-lg">
                   <i class="fa fa-play"></i>
                   Signup
@@ -52,9 +52,7 @@
                     <i class="material-icons">chat</i>
                   </div>
                   <h4 class="info-title">Comment</h4>
-                  <p>
-                    Ask questions to get the most details on the positions you like.
-                  </p>
+                  <p>Ask questions to get the most details on the positions you like.</p>
                 </div>
               </div>
               <div class="col-md-4">
@@ -63,9 +61,7 @@
                     <i class="material-icons">check</i>
                   </div>
                   <h4 class="info-title">Best Athletes</h4>
-                  <p>
-                    Select on an easy way the best positions that you are looking for.
-                  </p>
+                  <p>Select on an easy way the best positions that you are looking for.</p>
                 </div>
               </div>
               <div class="col-md-4">
@@ -74,9 +70,7 @@
                     <i class="material-icons">favorite</i>
                   </div>
                   <h4 class="info-title">Favorite</h4>
-                  <p>
-                    Select and save your favourite positions.
-                  </p>
+                  <p>Select and save to your library your favourite positions.</p>
                 </div>
               </div>
             </div>
@@ -92,11 +86,8 @@
   padding: 10rem 3rem 10rem 3rem;
 }
 
+#btn-login,
 #btn-signup {
-  width: 10rem;
-  padding: 1rem;
-}
-#btn-login {
   width: 10rem;
   padding: 1rem;
 }

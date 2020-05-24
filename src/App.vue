@@ -9,6 +9,7 @@
         <div class="navbar-translate">
           <a v-bind:id="`brand-name${white}`" class="navbar-brand" href="#">#letsRoll</a>
           <button
+            v-bind:id="`colapse-button${white}`"
             class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -69,6 +70,11 @@
                   <i class="material-icons">face</i>
                   My Profile
                 </a>
+
+                <a v-bind:id="`new-tag${white}`" class="dropdown-item" href="/positions/new">
+                  <i class="material-icons">create</i>
+                  Add New Position
+                </a>
                 <a
                   v-bind:id="`logout-tag${white}`"
                   v-if="isLoggedIn()"
@@ -77,10 +83,6 @@
                 >
                   <i class="material-icons">exit_to_app</i>
                   Logout
-                </a>
-                <a v-bind:id="`new-tag${white}`" class="dropdown-item" href="/positions/new">
-                  <i class="material-icons">create</i>
-                  New Position
                 </a>
               </div>
             </li>
@@ -106,10 +108,6 @@
 font-family: 'Permanent Marker', cursive;
 font-family: 'Prompt', sans-serif; */
 
-/* #sectionsNav {
-  background-color: #ededed;
-} */
-
 #brand-name {
   font-family: "Permanent Marker", cursive;
   font-size: 2rem;
@@ -130,6 +128,7 @@ font-family: 'Prompt', sans-serif; */
 #signup-tag-white,
 #login-tag-white,
 #user-tag-white,
+#colapse-button-white,
 #navbarDropdownMenuLink-white {
   color: #ffffff;
   font-family: "Permanent Marker", cursive;
@@ -142,6 +141,7 @@ font-family: 'Prompt', sans-serif; */
 #signup-tag,
 #login-tag,
 #user-tag,
+#colapse-button,
 #navbarDropdownMenuLink {
   color: black;
   font-size: 1.25rem;
@@ -152,7 +152,7 @@ font-family: 'Prompt', sans-serif; */
 #user-tag,
 #signup-tag,
 #login-tag {
-  font-family: "Permanent Marker", cursive;
+  font-family: "Prompt", sans-serif;
 }
 
 #navbarDropdownMenuLink,
@@ -188,6 +188,7 @@ export default {
     return {
       white: "",
       navClass: "-white",
+      userName: "",
     };
   },
   created: function() {
@@ -198,8 +199,9 @@ export default {
   },
   methods: {
     isLoggedIn: function() {
-      console.log(" i am checking if i'm logged in");
       if (localStorage.getItem("jwt")) {
+        this.userName = localStorage.getItem("name");
+
         return true;
       } else {
         return false;

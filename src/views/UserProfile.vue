@@ -90,8 +90,6 @@
                   <h4 class="h4">Upload Image:</h4>
                   <div class="cloudinary-uploader col-md-7 ml-auto mr-auto">
                     <input type="file" class="form-control" v-on:change="onFileSelected($event)" />
-                    <!-- <input type="file" @change="onFileSelected($event)" multiple ref="fileInput" />
-                    <cl-upload class="align" />-->
                     <span class="input-group-btn">
                       <button @click="onUpload()" type="button" class="btn btn-sm btn-primary">
                         <i class="material-icons">attach_file</i>Upload
@@ -294,7 +292,7 @@ export default {
       playerVars: {
         autoplay: 1,
       },
-      photoInfo: null,
+      photoInfo: "",
       selectedFile: null,
       cloudinary: {
         uploadPreset: `ud1eyem5`,
@@ -304,7 +302,6 @@ export default {
   },
   created: function() {
     axios.get("/api/users/" + this.$parent.getUserId()).then(response => {
-      console.log(response.data);
       this.userData = response.data;
     });
   },
@@ -337,11 +334,7 @@ export default {
       });
     },
     removeFromFavourites: function(theId) {
-      console.log("Removing position from favourites...");
-
       axios.delete(`api/favourites/${theId.favourite_id}`).then(response => {
-        console.log(response.data);
-        console.log(theId);
         let index = this.userData.favourites.indexOf(theId);
         this.userData.favourites.splice(index, 1);
       });
@@ -350,7 +343,6 @@ export default {
       console.log(event);
       console.log("FILE SELECTED");
       this.selectedFile = event.target.files[0];
-      console.log(this.selectedFile);
     },
     onUpload: function(event) {
       const formData = new FormData();
