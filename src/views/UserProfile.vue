@@ -92,7 +92,8 @@
                     <input type="file" class="form-control" v-on:change="onFileSelected($event)" />
                     <span class="input-group-btn">
                       <button @click="onUpload()" type="button" class="btn btn-sm btn-primary">
-                        <i class="material-icons">attach_file</i>Upload
+                        <i class="material-icons">attach_file</i>
+                        Upload
                       </button>
                     </span>
                   </div>
@@ -178,11 +179,8 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a
-                        class="card-title"
-                        v-bind:href="`/positions/${position.id}`"
-                      >{{ position.name }}</a>
-                      <p class="card-text">{{ position.description }}</p>
+                      <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                      <p class="card-text">{{ position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ position.type }}</p>
 
                       <div class="card-footer justify-content-center">
@@ -227,20 +225,15 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a
-                        class="card-title"
-                        v-bind:href="`/positions/${favouritePosition.position.id}`"
-                      >{{ favouritePosition.position.name }}</a>
-                      <p class="card-text">{{ favouritePosition.position.description }}</p>
+                      <a class="card-title" v-bind:href="`/positions/${favouritePosition.position.id}`">
+                        {{ favouritePosition.position.name }}
+                      </a>
+                      <p class="card-text">{{ favouritePosition.position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ favouritePosition.position.type }}</p>
 
                       <div class="card-footer justify-content-center">
                         <div class="row">
-                          <div
-                            class="col-12"
-                            v-bind:key="tag.id"
-                            v-for="tag in favouritePosition.position.tags"
-                          >
+                          <div class="col-12" v-bind:key="tag.id" v-for="tag in favouritePosition.position.tags">
                             <div class="bootstrap-tagsinput warning-badge col-1">
                               <span href="#" class="tag badge">#{{ tag.name }}</span>
                             </div>
@@ -302,6 +295,7 @@ export default {
   },
   created: function() {
     axios.get("/api/users/" + this.$parent.getUserId()).then(response => {
+      console.log(response.data);
       this.userData = response.data;
     });
   },

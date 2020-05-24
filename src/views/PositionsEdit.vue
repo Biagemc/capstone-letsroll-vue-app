@@ -26,12 +26,7 @@
                   <div class="row">
                     <div class="form-group col-md-9">
                       <label>Description:</label>
-                      <textarea
-                        type="text"
-                        class="form-control"
-                        rows="5"
-                        v-model="position.description"
-                      ></textarea>
+                      <textarea type="text" class="form-control" rows="5" v-model="position.description"></textarea>
                     </div>
                   </div>
                   <div class="row">
@@ -41,11 +36,12 @@
                       <select
                         role="tab"
                         id="inputState"
-                        class="form-control col-md-6 mb-0"
-                        data-style="btn btn-link"
+                        class="form-control selectpicker  col-md-6 mb-0"
+                        data-style="select-with-transition"
                         v-model="position.type"
+                        title="Position Type"
                       >
-                        <option disabled>{{ position.type }}</option>
+                        <option>{{ position.type }}</option>
                         <option></option>
                         <option>drills</option>
                         <option>sweeping</option>
@@ -80,11 +76,7 @@
             </form>
 
             <div class="button">
-              <a
-                id="btn-delete"
-                v-on:click="deletePosition()"
-                class="btn btn-danger"
-              >Delete Position</a>
+              <a id="btn-delete" v-on:click="deletePosition()" class="btn btn-danger">Delete Position</a>
             </div>
           </div>
         </div>
@@ -120,6 +112,7 @@ export default {
   created: function() {
     axios.get(`/api/positions/${this.$route.params.id}`).then(response => {
       this.position = response.data.position;
+      console.log(response.data.position);
       this.tags = response.data.tags;
     });
   },

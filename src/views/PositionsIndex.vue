@@ -133,7 +133,7 @@
                     <i class="material-icons">add_circle_outline</i>
                   </button>
                   <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
-                  <p class="card-text" maxlength="30">{{ position.description.substr(0, 80) + "..." }}</p>
+                  <p class="card-text">{{ position.description.substr(0, 80) + "..." }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 
                   <div class="card-footer justify-content-center">
