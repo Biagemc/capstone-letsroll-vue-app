@@ -34,20 +34,10 @@
               <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions">Positions</a>
             </li>
             <li class="nav-item">
-              <a
-                v-if="!isLoggedIn()"
-                v-bind:id="`signup-tag${white}`"
-                class="nav-link"
-                href="/signup"
-              >Signup</a>
+              <a v-if="!isLoggedIn()" v-bind:id="`signup-tag${white}`" class="nav-link" href="/signup">Signup</a>
             </li>
             <li class="nav-item">
-              <a
-                v-if="!isLoggedIn()"
-                v-bind:id="`login-tag${white}`"
-                class="nav-link"
-                href="/login"
-              >Login</a>
+              <a v-if="!isLoggedIn()" v-bind:id="`login-tag${white}`" class="nav-link" href="/login">Login</a>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
               <a
@@ -75,12 +65,7 @@
                   <i class="material-icons">create</i>
                   Add New Position
                 </a>
-                <a
-                  v-bind:id="`logout-tag${white}`"
-                  v-if="isLoggedIn()"
-                  class="dropdown-item"
-                  href="/logout"
-                >
+                <a v-bind:id="`logout-tag${white}`" v-if="isLoggedIn()" class="dropdown-item" href="/logout">
                   <i class="material-icons">exit_to_app</i>
                   Logout
                 </a>
@@ -131,7 +116,7 @@ font-family: 'Prompt', sans-serif; */
 #colapse-button-white,
 #navbarDropdownMenuLink-white {
   color: #ffffff;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Prompt", sans-serif;
   font-size: 1.25rem;
 }
 

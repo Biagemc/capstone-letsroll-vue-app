@@ -21,90 +21,76 @@
                 <form class="justify-content-center" v-on:submit.prevent="submit()">
                   <div class="card card-collapse">
                     <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        v-model="nameFilter"
-                        list="names"
-                        placeholder="Search"
-                      />
+                      <input type="text" class="form-control" v-model="nameFilter" list="names" placeholder="Search" />
                       <datalist id="names">
                         <option v-for="position in positions">{{ position.name }}</option>
                       </datalist>
                     </div>
                     <!-- Type selection Form Begin -->
+
+                    <div class="form-group">
+                      <label for="inputState">Choose Types...</label>
+
+                      <select
+                        role="tab"
+                        id="inputState"
+                        class="form-control selectpicker"
+                        data-style="select-with-transition"
+                        v-bind:on-change="updateSelected(typeSelected)"
+                        v-model="typeSelected"
+                      >
+                        <option disabled>Choose Type...</option>
+                        <option></option>
+                        <option>drills</option>
+                        <option>sweeping</option>
+                        <option>takedown</option>
+                        <option>mounting</option>
+                        <option>passing</option>
+                        <option>submission</option>
+                      </select>
+                    </div>
+
+                    <!-- Type selection form End -->
+                    <!-- Tags selection form begin -->
                     <div class="card card-collapse">
                       <div class="form-group">
-                        <label for="inputState">Choose Types...</label>
-
-                        <select
-                          role="tab"
-                          id="inputState"
-                          class="form-control mb-0"
-                          data-style="btn btn-link"
-                          v-bind:on-change="updateSelected(typeSelected)"
-                          v-model="typeSelected"
-                        >
-                          <option disabled>Choose Type...</option>
-                          <option></option>
-                          <option>drills</option>
-                          <option>sweeping</option>
-                          <option>takedown</option>
-                          <option>mounting</option>
-                          <option>passing</option>
-                          <option>submission</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Type selection form End -->
-                  <!-- Tags selection form begin -->
-                  <div class="card card-collapse">
-                    <div class="form-group">
-                      <div class="card-header" role="tab" id="headingThree">
-                        <h5 class="mb-0">
-                          <a
-                            class
-                            data-toggle="collapse"
-                            href="#collapseThree"
-                            aria-expanded="false"
-                            aria-controls="collapseThree"
-                          >
-                            Tags
-                            <i class="material-icons">keyboard_arrow_down</i>
-                          </a>
-                        </h5>
-                      </div>
-                      <div
-                        id="collapseThree"
-                        class="collapse"
-                        role="tabpanel"
-                        aria-labelledby="headingThree"
-                        style
-                      >
-                        <div class="card-body">
-                          <div v-for="tag in tags" class="form-check">
-                            <label class="form-check-label">
-                              <input
-                                class="form-check-input"
-                                type="checkbox"
-                                v-bind:value="tag.id"
-                                v-model="tagsSelected"
-                              />
-                              {{ tag.name }}
-                              <span
-                                class="form-check-sign"
-                              >
-                                <span class="check"></span>
-                              </span>
-                            </label>
+                        <div class="card-header" role="tab" id="headingThree">
+                          <h5 class="mb-0">
+                            <a
+                              class
+                              data-toggle="collapse"
+                              href="#collapseThree"
+                              aria-expanded="false"
+                              aria-controls="collapseThree"
+                            >
+                              Tags
+                              <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" style>
+                          <div class="card-body">
+                            <div v-for="tag in tags" class="form-check">
+                              <label class="form-check-label">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  v-bind:value="tag.id"
+                                  v-model="tagsSelected"
+                                />
+                                {{ tag.name }}
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <!-- Tags selection form end -->
+                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
                   </div>
-                  <!-- Tags selection form end -->
-                  <button type="submit" class="btn btn-primary btn-sm">Search</button>
                 </form>
                 <!-- End form -->
               </div>
@@ -146,11 +132,8 @@
                   >
                     <i class="material-icons">add_circle_outline</i>
                   </button>
-                  <a
-                    class="card-title"
-                    v-bind:href="`/positions/${position.id}`"
-                  >{{ position.name }}</a>
-                  <p class="card-text">{{ position.description }}</p>
+                  <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                  <p class="card-text" maxlength="30">{{ position.description.substr(0, 80) + "..." }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 
                   <div class="card-footer justify-content-center">
