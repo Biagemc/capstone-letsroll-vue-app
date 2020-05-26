@@ -169,7 +169,6 @@
                         <youtube
                           class="embed-responsive-item"
                           style="max-width: 280px;"
-                          gesture="media"
                           allow="encrypted-media"
                           allowfullscreen
                           v-bind:video-id="getVideoId(position.url)"
@@ -215,7 +214,6 @@
                         <youtube
                           class="embed-responsive-item"
                           style="max-width: 280px;"
-                          gesture="media"
                           allow="encrypted-media"
                           allowfullscreen
                           v-bind:video-id="getVideoId(favouritePosition.position.url)"
@@ -295,7 +293,6 @@ export default {
   },
   created: function() {
     axios.get("/api/users/" + this.$parent.getUserId()).then(response => {
-      console.log(response.data);
       this.userData = response.data;
     });
   },
@@ -325,6 +322,7 @@ export default {
       };
       axios.patch("/api/users/" + this.$parent.getUserId(), params).then(response => {
         this.editMode = false;
+        this.$forceUpdate();
       });
     },
     removeFromFavourites: function(theId) {
@@ -334,8 +332,6 @@ export default {
       });
     },
     onFileSelected: function(event) {
-      console.log(event);
-      console.log("FILE SELECTED");
       this.selectedFile = event.target.files[0];
     },
     onUpload: function(event) {
@@ -343,7 +339,6 @@ export default {
       formData.append("file", this.selectedFile);
       formData.append("upload_preset", this.cloudinary.uploadPreset);
 
-      console.log(formData);
       const instance = axios.create({
         baseURL: this.cloudinaryURL,
         headers: {
@@ -361,7 +356,6 @@ export default {
           },
         })
         .then(response => {
-          console.log(response.data);
           this.photoInfo = response.data;
         })
         .catch(e => {

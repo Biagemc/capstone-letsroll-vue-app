@@ -34,8 +34,8 @@
                       <select
                         role="tab"
                         id="inputState"
-                        class="form-control selectpicker"
-                        data-style="select-with-transition"
+                        class="form-control mb-0"
+                        data-style="btn btn-link"
                         v-bind:on-change="updateSelected(typeSelected)"
                         v-model="typeSelected"
                       >
@@ -116,7 +116,6 @@
                     <youtube
                       class="embed-responsive-item"
                       style="max-width: 280px;"
-                      gesture="media"
                       allow="encrypted-media"
                       allowfullscreen
                       v-bind:video-id="getVideoId(position.url)"
@@ -208,12 +207,12 @@ export default {
       newsFeed: [],
     };
   },
-  created: function() {
+  mounted: function() {
     axios.get("/api/positions").then(response => {
-      console.log(response.data);
       this.positions = response.data.positions;
       this.tags = response.data.tags;
     });
+    this.typeSelected = "";
   },
   methods: {
     playing() {
@@ -239,7 +238,6 @@ export default {
       }
 
       axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
-        console.log(response.data);
         this.positions = response.data.positions;
         this.tags = response.data.tags;
         this.typeSelected = "";
@@ -256,9 +254,7 @@ export default {
         user_id: this.$parent.getUserId(),
       };
 
-      axios.post("/api/favourites", params).then(response => {
-        console.log(response.data);
-      });
+      axios.post("/api/favourites", params).then(response => {});
     },
   },
 };

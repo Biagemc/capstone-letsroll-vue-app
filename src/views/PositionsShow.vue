@@ -13,7 +13,6 @@
                   <youtube
                     class="embed-responsive-item"
                     style="max-width: 800px;max-heigth:500px;"
-                    gesture="media"
                     allow="encrypted-media"
                     allowfullscreen
                     :video-id="getVideoId(position.url)"
@@ -80,11 +79,7 @@
                     <div class="media">
                       <a class="float-left" href="#">
                         <div class="avatar">
-                          <img
-                            class="media-object"
-                            v-bind:src="comment.user_avatar"
-                            alt="user-avatar"
-                          />
+                          <img class="media-object" v-bind:src="comment.user_avatar" alt="user-avatar" />
                         </div>
                       </a>
                       <div class="media-body">
@@ -171,7 +166,6 @@ export default {
   },
   created: function() {
     axios.get("/api/positions/" + this.$route.params.id).then(response => {
-      console.log("Success", response.data);
       this.position = response.data.position;
       this.discussion = response.data.discussion;
       this.post = response.data.post;
@@ -200,16 +194,12 @@ export default {
       };
 
       axios.post("/api/comments", params).then(response => {
-        console.log("Adding this comment", response.data);
         this.discussion.push(response.data);
         this.newCommentContent = "";
       });
     },
     deleteComment: function(parameter) {
-      console.log("Deleting position...");
-
       axios.delete(`api/comments/${parameter.id}`).then(response => {
-        console.log(response.data);
         let index = this.discussion.indexOf(parameter);
         this.discussion.splice(index, 1);
       });
