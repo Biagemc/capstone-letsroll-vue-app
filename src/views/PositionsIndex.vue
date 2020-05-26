@@ -127,11 +127,14 @@
                 <div class="card-body">
                   <button
                     v-on:click="addToFavourites(position.id)"
-                    class="btn btn-default btn-fab btn-fab-mini btn-link pull-right"
+                    class="btn btn-default btn-fab btn-fab-mini btn-round pull-right"
                   >
                     <i class="material-icons">add_circle_outline</i>
                   </button>
-                  <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                  <router-link tag="a" class="card-title" v-bind:to="`/positions/${position.id}`">
+                    {{ position.name }}
+                  </router-link>
+
                   <p class="card-text">{{ position.description.substr(0, 80) + "..." }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 

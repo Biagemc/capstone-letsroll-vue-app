@@ -178,7 +178,9 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                      <router-link tag="a" class="card-title" v-bind:to="`/positions/${position.id}`">
+                        {{ position.name }}
+                      </router-link>
                       <p class="card-text">{{ position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -223,9 +225,9 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${favouritePosition.position.id}`">
+                      <router-link tag="a" class="card-title" v-bind:to="`/positions/${favouritePosition.position.id}`">
                         {{ favouritePosition.position.name }}
-                      </a>
+                      </router-link>
                       <p class="card-text">{{ favouritePosition.position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ favouritePosition.position.type }}</p>
 
