@@ -6,6 +6,8 @@ Web app for practitioners of Brazilian Jiu-jitsu. Contains a library of Brazilia
 
 Backend and deploy version is located in this repository. https://github.com/Biagemc/capstone_letsroll_app
 
+Live Link: https://blooming-river-36615.herokuapp.com/
+
 ## Project setup
 ```
 npm install
