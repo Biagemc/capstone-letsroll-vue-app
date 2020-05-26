@@ -25,19 +25,25 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a v-bind:id="`home-tag${white}`" class="nav-link" href="/">
+              <router-link tag="a" class="nav-link" to="/" v-bind:id="`home-tag${white}`">
                 Home
                 <span class="sr-only">(current)</span>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a v-bind:id="`positions-tag${white}`" class="nav-link" href="/positions-index">Positions</a>
+              <router-link tag="a" class="nav-link" to="/positions-index" v-bind:id="`positions-tag${white}`">
+                Positions
+              </router-link>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" v-bind:id="`signup-tag${white}`" class="nav-link" href="/signup">Signup</a>
+              <router-link tag="a" v-if="!isLoggedIn()" class="nav-link" v-bind:id="`signup-tag${white}`" to="/signup">
+                Signup
+              </router-link>
             </li>
             <li class="nav-item">
-              <a v-if="!isLoggedIn()" v-bind:id="`login-tag${white}`" class="nav-link" href="/login">Login</a>
+              <router-link tag="a" v-if="!isLoggedIn()" v-bind:id="`login-tag${white}`" class="nav-link" to="/login">
+                Login
+              </router-link>
             </li>
             <li v-if="isLoggedIn()" class="dropdown nav-item">
               <a
@@ -51,24 +57,26 @@
                 User
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a
-                  v-bind:id="`profile-tag${white}`"
+                <router-link
+                  tag="a"
                   v-if="isLoggedIn()"
                   class="dropdown-item"
-                  v-bind:href="`/user-profile/${getUserId()}`"
+                  v-bind:id="`profile-tag${white}`"
+                  v-bind:to="`/user-profile/${getUserId()}`"
                 >
                   <i class="material-icons">face</i>
                   My Profile
-                </a>
+                </router-link>
 
-                <a v-bind:id="`new-tag${white}`" class="dropdown-item" href="/positions/new">
+                <router-link tag="a" class="dropdown-item" v-bind:id="`new-tag${white}`" to="/positions/new">
                   <i class="material-icons">create</i>
                   Add New Position
-                </a>
-                <a v-bind:id="`logout-tag${white}`" v-if="isLoggedIn()" class="dropdown-item" href="/logout">
+                </router-link>
+
+                <router-link v-if="isLoggedIn()" class="dropdown-item" v-bind:id="`logout-tag${white}`" to="/logout">
                   <i class="material-icons">exit_to_app</i>
                   Logout
-                </a>
+                </router-link>
               </div>
             </li>
           </ul>
@@ -145,6 +153,7 @@ font-family: 'Prompt', sans-serif; */
 #profile-tag,
 #new-tag {
   font-family: "Prompt", sans-serif;
+  color: black;
 }
 
 .nav-item {
@@ -176,10 +185,19 @@ export default {
       userName: "",
     };
   },
+  watch: {
+    $route(Home) {
+      this.white = "";
+      this.navClass = "-white";
+    },
+  },
   created: function() {
     if (this.$route.path === "/") {
       this.white = "-white";
       this.navClass = "-dark";
+    } else {
+      this.white = "";
+      this.navClass = "-white";
     }
   },
   methods: {

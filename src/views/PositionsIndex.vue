@@ -34,8 +34,8 @@
                       <select
                         role="tab"
                         id="inputState"
-                        class="form-control selectpicker"
-                        data-style="select-with-transition"
+                        class="form-control mb-0"
+                        data-style="btn btn-link"
                         v-bind:on-change="updateSelected(typeSelected)"
                         v-model="typeSelected"
                       >
@@ -116,7 +116,6 @@
                     <youtube
                       class="embed-responsive-item"
                       style="max-width: 280px;"
-                      gesture="media"
                       allow="encrypted-media"
                       allowfullscreen
                       v-bind:video-id="getVideoId(position.url)"
@@ -128,11 +127,14 @@
                 <div class="card-body">
                   <button
                     v-on:click="addToFavourites(position.id)"
-                    class="btn btn-default btn-fab btn-fab-mini btn-link pull-right"
+                    class="btn btn-default btn-fab btn-fab-mini btn-round pull-right"
                   >
                     <i class="material-icons">add_circle_outline</i>
                   </button>
-                  <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                  <router-link tag="a" class="card-title" v-bind:to="`/positions/${position.id}`">
+                    {{ position.name }}
+                  </router-link>
+
                   <p class="card-text">{{ position.description.substr(0, 80) + "..." }}</p>
                   <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -208,12 +210,12 @@ export default {
       newsFeed: [],
     };
   },
-  created: function() {
+  mounted: function() {
     axios.get("/api/positions").then(response => {
-      console.log(response.data);
       this.positions = response.data.positions;
       this.tags = response.data.tags;
     });
+    this.typeSelected = "";
   },
   methods: {
     playing() {
@@ -239,7 +241,6 @@ export default {
       }
 
       axios.get(`/api/positions?${typeSelectedUrl}${tagsSelectedUrl}`).then(response => {
-        console.log(response.data);
         this.positions = response.data.positions;
         this.tags = response.data.tags;
         this.typeSelected = "";
@@ -256,9 +257,7 @@ export default {
         user_id: this.$parent.getUserId(),
       };
 
-      axios.post("/api/favourites", params).then(response => {
-        console.log(response.data);
-      });
+      axios.post("/api/favourites", params).then(response => {});
     },
   },
 };

@@ -169,7 +169,6 @@
                         <youtube
                           class="embed-responsive-item"
                           style="max-width: 280px;"
-                          gesture="media"
                           allow="encrypted-media"
                           allowfullscreen
                           v-bind:video-id="getVideoId(position.url)"
@@ -179,7 +178,9 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${position.id}`">{{ position.name }}</a>
+                      <router-link tag="a" class="card-title" v-bind:to="`/positions/${position.id}`">
+                        {{ position.name }}
+                      </router-link>
                       <p class="card-text">{{ position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ position.type }}</p>
 
@@ -215,7 +216,6 @@
                         <youtube
                           class="embed-responsive-item"
                           style="max-width: 280px;"
-                          gesture="media"
                           allow="encrypted-media"
                           allowfullscreen
                           v-bind:video-id="getVideoId(favouritePosition.position.url)"
@@ -225,9 +225,9 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <a class="card-title" v-bind:href="`/positions/${favouritePosition.position.id}`">
+                      <router-link tag="a" class="card-title" v-bind:to="`/positions/${favouritePosition.position.id}`">
                         {{ favouritePosition.position.name }}
-                      </a>
+                      </router-link>
                       <p class="card-text">{{ favouritePosition.position.description.substr(0, 50) + "..." }}</p>
                       <p class="card-category text-gray">{{ favouritePosition.position.type }}</p>
 
@@ -295,7 +295,6 @@ export default {
   },
   created: function() {
     axios.get("/api/users/" + this.$parent.getUserId()).then(response => {
-      console.log(response.data);
       this.userData = response.data;
     });
   },
@@ -325,6 +324,7 @@ export default {
       };
       axios.patch("/api/users/" + this.$parent.getUserId(), params).then(response => {
         this.editMode = false;
+        this.$forceUpdate();
       });
     },
     removeFromFavourites: function(theId) {
@@ -334,8 +334,6 @@ export default {
       });
     },
     onFileSelected: function(event) {
-      console.log(event);
-      console.log("FILE SELECTED");
       this.selectedFile = event.target.files[0];
     },
     onUpload: function(event) {
@@ -343,7 +341,6 @@ export default {
       formData.append("file", this.selectedFile);
       formData.append("upload_preset", this.cloudinary.uploadPreset);
 
-      console.log(formData);
       const instance = axios.create({
         baseURL: this.cloudinaryURL,
         headers: {
@@ -361,7 +358,6 @@ export default {
           },
         })
         .then(response => {
-          console.log(response.data);
           this.photoInfo = response.data;
         })
         .catch(e => {

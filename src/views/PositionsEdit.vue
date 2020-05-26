@@ -112,7 +112,6 @@ export default {
   created: function() {
     axios.get(`/api/positions/${this.$route.params.id}`).then(response => {
       this.position = response.data.position;
-      console.log(response.data.position);
       this.tags = response.data.tags;
     });
   },
@@ -135,9 +134,7 @@ export default {
         });
     },
     deletePosition: function() {
-      console.log("Deleting position...");
       axios.delete(`api/positions/${this.position.id}`).then(response => {
-        console.log(response.data);
         this.$router.push("/positions-index");
       });
     },

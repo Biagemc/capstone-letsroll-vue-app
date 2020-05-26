@@ -16,16 +16,16 @@
             <br />
             <div class="row justify-content-around">
               <div class="button col-9">
-                <a id="btn-signup" href="/signup" class="btn btn-danger btn-raised btn-lg">
+                <router-link tag="a" id="btn-signup" to="/signup" class="btn btn-danger btn-raised btn-lg">
                   <i class="fa fa-play"></i>
                   Signup
                   <div class="ripple-container"></div>
-                </a>
-                <a id="btn-login" href="/login" class="btn btn-info btn-raised btn-lg">
+                </router-link>
+                <router-link tag="a" id="btn-login" to="/login" class="btn btn-info btn-raised btn-lg">
                   <i class="fa fa-play"></i>
                   Login
                   <div class="ripple-container"></div>
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
