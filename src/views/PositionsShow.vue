@@ -33,7 +33,9 @@
                 <h5>{{ position.description }}</h5>
               </div>
               <div v-if="position.user_id === $parent.getUserId()" id="button-edit">
-                <a v-bind:href="`/positions/${position.id}/edit`" class="btn btn-primary">Edit Info</a>
+                <router-link tag="a" v-bind:href="`/positions/${position.id}/edit`" class="btn btn-primary">
+                  Edit Info
+                </router-link>
               </div>
             </div>
           </div>
